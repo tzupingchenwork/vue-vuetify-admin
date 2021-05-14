@@ -7,7 +7,8 @@ module.exports = {
     'plugin:vue/essential',
     'plugin:vue/strongly-recommended',
     'plugin:vue/recommended',
-    '@vue/airbnb',
+    '@vue/standard'
+    // '@vue/airbnb',
   ],
   plugins: [
     'vuetify',

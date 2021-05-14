@@ -136,16 +136,16 @@ export default {
     },
     getChartOption(option) {
       switch (option) {
-        case 'line':
-          return getLineChartOption(this.lineChartData);
-        case 'raddar':
-          return getRaddarChartOption({ animationDuration: 3000 });
-        case 'pie':
-          return getPieChartOption();
-        case 'bar':
-          return getBarChartOption({ animationDuration: 6000 });
-        default:
-          return {};
+      case 'line':
+        return getLineChartOption(this.lineChartData);
+      case 'raddar':
+        return getRaddarChartOption({ animationDuration: 3000 });
+      case 'pie':
+        return getPieChartOption();
+      case 'bar':
+        return getBarChartOption({ animationDuration: 6000 });
+      default:
+        return {};
       }
     },
   },

@@ -9,7 +9,7 @@
         <v-btn
           class="info"
           :style="{background: color,borderColor: color}"
-          @click="dialogVisible= = rue"
+          @click="dialogVisible === rue"
           v-on="on"
         >
           upload

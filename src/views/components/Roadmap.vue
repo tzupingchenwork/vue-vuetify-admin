@@ -18,7 +18,7 @@
             <span>{{ step.date ? step.date : 'Expected' }}</span>
           </template>
           <v-card class="elevation-2">
-            <v-card-title class="headline">
+            <v-card-title class="text-h5">
               {{ step.title }}
             </v-card-title>
             <v-card-text>
