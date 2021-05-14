@@ -36,112 +36,112 @@ Vue.use(Router);
  */
 
 export const constantRoutes = [
-  {
-    path: '/landing',
-    alias: '/land',
-    component: () => import('@/views/auth/Landing.vue'),
-    hidden: true,
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/dashboard',
-        alias: '/',
-        component: () => import('@/views/components/Dashboard/index'),
-        name: 'Dashboard',
-        meta: {
-          title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true,
-        },
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/documentation',
-        component: () => import('@/views/components/Documentation'),
-        name: 'Documentation',
-        meta: {
-          title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true,
-        },
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/guide',
-        component: () => import('@/views/components/Guide'),
-        name: 'Guide',
-        meta: {
-          title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true,
-        },
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/roadmap',
-        component: () => import('@/views/components/Roadmap'),
-        name: 'Roadmap',
-        meta: {
-          title: 'route.roadmap',
-          icon: 'mdi-timeline-text',
-          noCache: true,
-          affix: true,
-        },
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/theme',
-        component: () => import('@/views/components/Theme.vue'),
-        name: 'Theme',
-        meta: { title: 'route.theme', icon: 'mdi-palette' },
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/i18n',
-        component: () => import('@/views/components/I18n.vue'),
-        name: 'I18n',
-        meta: { title: 'route.i18n', icon: 'mdi-translate' },
-      },
-    ],
-  },
+	{
+		path: '/landing',
+		alias: '/land',
+		component: () => import('@/views/auth/Landing.vue'),
+		hidden: true
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/dashboard',
+				alias: '/',
+				component: () => import('@/views/components/Dashboard/index'),
+				name: 'Dashboard',
+				meta: {
+					title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true
+				}
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/documentation',
+				component: () => import('@/views/components/Documentation'),
+				name: 'Documentation',
+				meta: {
+					title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true
+				}
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/guide',
+				component: () => import('@/views/components/Guide'),
+				name: 'Guide',
+				meta: {
+					title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true
+				}
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/roadmap',
+				component: () => import('@/views/components/Roadmap'),
+				name: 'Roadmap',
+				meta: {
+					title: 'route.roadmap',
+					icon: 'mdi-timeline-text',
+					noCache: true,
+					affix: true
+				}
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/theme',
+				component: () => import('@/views/components/Theme.vue'),
+				name: 'Theme',
+				meta: { title: 'route.theme', icon: 'mdi-palette' }
+			}
+		]
+	},
+	{
+		path: '/',
+		component: Layout,
+		children: [
+			{
+				path: '/i18n',
+				component: () => import('@/views/components/I18n.vue'),
+				name: 'I18n',
+				meta: { title: 'route.i18n', icon: 'mdi-translate' }
+			}
+		]
+	},
 
-  ...authRouter,
+	...authRouter
 ];
 
 export default new Router({
-  // mode: 'history', // gh-pages
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes,
+	// mode: 'history', // gh-pages
+	scrollBehavior: () => ({ y: 0 }),
+	routes: constantRoutes
 });
 
 export const asyncRoutes = [
-  /** When your routing table is too long, you can split it into small modules */
-  permissionRouter,
-  vuetifyRouter,
-  ...componentsRouter,
-  nestedRouter,
-  errorsRouter,
-  { path: '*', redirect: '/error/404', hidden: true },
+	/** When your routing table is too long, you can split it into small modules */
+	permissionRouter,
+	vuetifyRouter,
+	...componentsRouter,
+	nestedRouter,
+	errorsRouter,
+	{ path: '*', redirect: '/error/404', hidden: true }
 ];

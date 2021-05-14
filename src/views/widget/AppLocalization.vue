@@ -37,14 +37,14 @@
 import { locales } from '@/locale';
 
 export default {
-  name: 'AppLocalization',
-  data: () => ({
-    locales,
-  }),
-  methods: {
-    async setLocale(locale) {
-      await this.$store.dispatch('SetLocale', { locale });
-    },
-  },
+	name: 'AppLocalization',
+	data: () => ({
+		locales
+	}),
+	methods: {
+		async setLocale (locale) {
+			await this.$store.dispatch('SetLocale', { locale });
+		}
+	}
 };
 </script>

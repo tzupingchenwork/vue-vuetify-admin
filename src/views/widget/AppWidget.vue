@@ -30,19 +30,19 @@
 
 <script>
 export default {
-  name: 'AppWidget',
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    icon: {
-      type: String,
-      default: 'mdi-dots-vertical',
-    },
-    headerHide: Boolean,
-    paddingHide: Boolean,
-  },
-  data: () => ({}),
+	name: 'AppWidget',
+	props: {
+		title: {
+			type: String,
+			default: ''
+		},
+		icon: {
+			type: String,
+			default: 'mdi-dots-vertical'
+		},
+		headerHide: Boolean,
+		paddingHide: Boolean
+	},
+	data: () => ({})
 };
 </script>

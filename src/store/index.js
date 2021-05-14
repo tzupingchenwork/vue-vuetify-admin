@@ -8,18 +8,18 @@ import user from './modules/user';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: {
-    permission,
-    settings,
-    user,
-  },
+	modules: {
+		permission,
+		settings,
+		user
+	},
 
-  plugins: [
-    syncStorage({}),
-  ],
+	plugins: [
+		syncStorage({})
+	],
 
-  state: {},
-  mutations: {},
-  actions: {},
-  getters: {},
+	state: {},
+	mutations: {},
+	actions: {},
+	getters: {}
 });

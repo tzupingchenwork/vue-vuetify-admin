@@ -49,70 +49,70 @@
 import { resolve } from 'path';
 
 export default {
-  name: 'TheLayoutDrawerList',
-  props: {
-    dense: Boolean,
-    iconShow: Boolean,
-    isNest: Boolean,
-    routes: {
-      type: Array,
-      default: () => {},
-    },
-    basePath: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    this.onlyOneChild = null;
-    return {};
-  },
-  methods: {
-    isExternal(path) {
-      return /^(https?:|mailto:|tel:)/.test(path);
-    },
-    isVisibleItem(item) {
-      return this.hasOneVisibleChild(item.children, item)
-        && (!this.onlyOneChild.children || this.onlyOneChild.noVisibleChildren)
-        && !item.alwaysShow;
-    },
-    hasOneVisibleChild(children = [], parent) {
-      const visibleChildren = children.filter((item) => {
-        if (item.hidden) return false;
-        // Temp set(will be used if only has one visible child)
-        this.onlyOneChild = item;
-        return true;
-      });
+	name: 'TheLayoutDrawerList',
+	props: {
+		dense: Boolean,
+		iconShow: Boolean,
+		isNest: Boolean,
+		routes: {
+			type: Array,
+			default: () => {}
+		},
+		basePath: {
+			type: String,
+			default: ''
+		}
+	},
+	data () {
+		this.onlyOneChild = null;
+		return {};
+	},
+	methods: {
+		isExternal (path) {
+			return /^(https?:|mailto:|tel:)/.test(path);
+		},
+		isVisibleItem (item) {
+			return this.hasOneVisibleChild(item.children, item) &&
+        (!this.onlyOneChild.children || this.onlyOneChild.noVisibleChildren) &&
+        !item.alwaysShow;
+		},
+		hasOneVisibleChild (children = [], parent) {
+			const visibleChildren = children.filter((item) => {
+				if (item.hidden) return false;
+				// Temp set(will be used if only has one visible child)
+				this.onlyOneChild = item;
+				return true;
+			});
 
-      // When there is only one child router, the child router is displayed by default
-      if (visibleChildren.length === 1) {
-        this.onlyOneChild.path = resolve(parent.path, this.onlyOneChild.path);
-        this.onlyOneChild.meta.icon = this.onlyOneChild.meta.icon || parent.meta.icon || '';
+			// When there is only one child router, the child router is displayed by default
+			if (visibleChildren.length === 1) {
+				this.onlyOneChild.path = resolve(parent.path, this.onlyOneChild.path);
+				this.onlyOneChild.meta.icon = this.onlyOneChild.meta.icon || parent.meta.icon || '';
 
-        return true;
-      }
+				return true;
+			}
 
-      // Show parent if there are no child router to display
-      if (visibleChildren.length === 0) {
-        this.onlyOneChild = { ...parent, noVisibleChildren: true };
-        return true;
-      }
+			// Show parent if there are no child router to display
+			if (visibleChildren.length === 0) {
+				this.onlyOneChild = { ...parent, noVisibleChildren: true };
+				return true;
+			}
 
-      return false;
-    },
-    resolvePath(path) {
-      if (this.isExternal(path)) {
-        return path;
-      }
-      return resolve(this.basePath, path);
-    },
-    getListIcon(item) {
-      return this.iconShow && item.meta ? item.meta.icon : ' ';
-    },
-    getListTitle(item) {
-      return item.meta ? this.$t(item.meta.title) : '';
-    },
-  },
+			return false;
+		},
+		resolvePath (path) {
+			if (this.isExternal(path)) {
+				return path;
+			}
+			return resolve(this.basePath, path);
+		},
+		getListIcon (item) {
+			return this.iconShow && item.meta ? item.meta.icon : ' ';
+		},
+		getListTitle (item) {
+			return item.meta ? this.$t(item.meta.title) : '';
+		}
+	}
 };
 
 </script>

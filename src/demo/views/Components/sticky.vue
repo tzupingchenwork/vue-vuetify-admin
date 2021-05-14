@@ -109,16 +109,16 @@ import { mapGetters } from 'vuex';
 import Sticky from '@/demo/components/Sticky/index.vue';
 
 export default {
-  name: 'StickyDemo',
-  components: { Sticky },
-  data: () => ({
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
-  }),
-  computed: {
-    ...mapGetters([
-      'toolbarDense',
-    ]),
-  },
+	name: 'StickyDemo',
+	components: { Sticky },
+	data: () => ({
+		items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+	}),
+	computed: {
+		...mapGetters([
+			'toolbarDense'
+		])
+	}
 };
 </script>
 

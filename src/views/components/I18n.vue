@@ -185,24 +185,24 @@ import { headers, desserts } from '@/api/mock_table';
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'I18n',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    locales,
-    headers,
-    desserts,
-  }),
-  computed: {
-    ...mapGetters([
-      'locale',
-    ]),
-  },
-  methods: {
-    async setLocale(locale) {
-      await this.$store.dispatch('SetLocale', { locale });
-    },
-  },
+	name: 'I18n',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		locales,
+		headers,
+		desserts
+	}),
+	computed: {
+		...mapGetters([
+			'locale'
+		])
+	},
+	methods: {
+		async setLocale (locale) {
+			await this.$store.dispatch('SetLocale', { locale });
+		}
+	}
 };
 </script>

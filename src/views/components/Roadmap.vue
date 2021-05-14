@@ -35,9 +35,9 @@
 import steps from '@/api/roadmap';
 
 export default {
-  name: 'Roadmap',
-  data: () => ({
-    steps,
-  }),
+	name: 'Roadmap',
+	data: () => ({
+		steps
+	})
 };
 </script>

@@ -281,10 +281,10 @@
 import { lorem, landingInfo } from '@/api/mock';
 
 export default {
-  name: 'Landing',
-  data: () => ({
-    info: landingInfo,
-    lorem,
-  }),
+	name: 'Landing',
+	data: () => ({
+		info: landingInfo,
+		lorem
+	})
 };
 </script>

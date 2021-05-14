@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'AppCenter',
-  data: () => ({}),
+	name: 'AppCenter',
+	data: () => ({})
 };
 </script>

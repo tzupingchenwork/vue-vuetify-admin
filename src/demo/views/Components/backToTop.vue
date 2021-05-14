@@ -133,8 +133,8 @@
 
 <script>
 export default {
-  name: 'BackToTopDemo',
-  data: () => ({}),
+	name: 'BackToTopDemo',
+	data: () => ({})
 };
 </script>
 

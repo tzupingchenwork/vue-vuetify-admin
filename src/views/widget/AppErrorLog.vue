@@ -12,11 +12,11 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'AppErrorLog',
-  computed: {
-    ...mapGetters([]),
-  },
-  methods: {
-  },
+	name: 'AppErrorLog',
+	computed: {
+		...mapGetters([])
+	},
+	methods: {
+	}
 };
 </script>

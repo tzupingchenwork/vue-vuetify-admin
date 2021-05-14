@@ -169,25 +169,25 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Alert',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    alert: {
-      showSuccess: true,
-      showError: true,
-      showWarnning: true,
-      showInfo: true,
-    },
-  }),
-  methods: {
-    handleReset() {
-      this.alert.showError = true;
-      this.alert.showSuccess = true;
-      this.alert.showWarnning = true;
-      this.alert.showInfo = true;
-    },
-  },
+	name: 'Alert',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		alert: {
+			showSuccess: true,
+			showError: true,
+			showWarnning: true,
+			showInfo: true
+		}
+	}),
+	methods: {
+		handleReset () {
+			this.alert.showError = true;
+			this.alert.showSuccess = true;
+			this.alert.showWarnning = true;
+			this.alert.showInfo = true;
+		}
+	}
 };
 </script>

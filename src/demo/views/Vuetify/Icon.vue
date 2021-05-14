@@ -79,34 +79,34 @@
 
 <script>
 export default {
-  name: 'Icon',
-  data() {
-    return {
-      selectedTab: null,
-      tabs: null,
-      material: null,
-      ft: null,
-    };
-  },
-  created() {
-    fetch('./static/data/material.json')
-      .then((response) => {
-        console.log('fetch ./static/data/material.json');
-        return response.json();
-      })
-      .then((json) => {
-        this.material = json.icons.splice(0, 100);
-      });
-    fetch('./static/data/font-awesome.json')
-      .then((response) => {
-        console.log('fetch ./static/data/font-awesome.json');
-        return response.json();
-      })
-      .then((json) => {
-        const version = '4.7.0';
-        this.ft = json[version].splice(0, 100);
-      });
-  },
+	name: 'Icon',
+	data () {
+		return {
+			selectedTab: null,
+			tabs: null,
+			material: null,
+			ft: null
+		};
+	},
+	created () {
+		fetch('./static/data/material.json')
+			.then((response) => {
+				console.log('fetch ./static/data/material.json');
+				return response.json();
+			})
+			.then((json) => {
+				this.material = json.icons.splice(0, 100);
+			});
+		fetch('./static/data/font-awesome.json')
+			.then((response) => {
+				console.log('fetch ./static/data/font-awesome.json');
+				return response.json();
+			})
+			.then((json) => {
+				const version = '4.7.0';
+				this.ft = json[version].splice(0, 100);
+			});
+	}
 };
 </script>
 

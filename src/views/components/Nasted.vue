@@ -22,12 +22,12 @@
 
 <script>
 export default {
-  name: 'Nasted',
-  props: {
-    nestedLevel: {
-      type: Number,
-      default: 1,
-    },
-  },
+	name: 'Nasted',
+	props: {
+		nestedLevel: {
+			type: Number,
+			default: 1
+		}
+	}
 };
 </script>

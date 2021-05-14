@@ -24,13 +24,13 @@ import LineChart from '@/demo/components/Charts/LineMarker.vue';
 import MixChart from '@/demo/components/Charts/MixChart.vue';
 
 export default {
-  name: 'Chart',
-  components: { KeyboardChart, LineChart, MixChart },
-  props: {
-    keyboard: Boolean,
-    line: Boolean,
-    mix: Boolean,
-  },
+	name: 'Chart',
+	components: { KeyboardChart, LineChart, MixChart },
+	props: {
+		keyboard: Boolean,
+		line: Boolean,
+		mix: Boolean
+	}
 };
 </script>
 

@@ -363,24 +363,24 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Dialogs',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    basic: {
-      dialog: false,
-    },
-    fullscreen: {
-      dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false,
-    },
-    scrollable: {
-      name: '',
-      dialog: false,
-    },
-  }),
+	name: 'Dialogs',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		basic: {
+			dialog: false
+		},
+		fullscreen: {
+			dialog: false,
+			notifications: false,
+			sound: true,
+			widgets: false
+		},
+		scrollable: {
+			name: '',
+			dialog: false
+		}
+	})
 };
 </script>

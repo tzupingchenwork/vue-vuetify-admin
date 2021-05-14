@@ -115,20 +115,20 @@ import AppTheme from '@/views/widget/AppTheme.vue';
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Theme',
-  components: { AppTheme, AppWidget },
-  data: () => ({
-    turn: true,
-    items: [
-      // { color: 'default', icon: 'mdi-check-circle' },
-      { color: 'primary', icon: 'mdi-check-circle' },
-      { color: 'secondary', icon: 'mdi-check-circle' },
-      { color: 'accent', icon: 'mdi-check-circle' },
-      { color: 'success', icon: 'mdi-check-circle' },
-      { color: 'error', icon: 'mdi-alert' },
-      { color: 'warning', icon: 'mdi-alert' },
-      { color: 'info', icon: 'mdi-alert-circle' },
-    ],
-  }),
+	name: 'Theme',
+	components: { AppTheme, AppWidget },
+	data: () => ({
+		turn: true,
+		items: [
+			// { color: 'default', icon: 'mdi-check-circle' },
+			{ color: 'primary', icon: 'mdi-check-circle' },
+			{ color: 'secondary', icon: 'mdi-check-circle' },
+			{ color: 'accent', icon: 'mdi-check-circle' },
+			{ color: 'success', icon: 'mdi-check-circle' },
+			{ color: 'error', icon: 'mdi-alert' },
+			{ color: 'warning', icon: 'mdi-alert' },
+			{ color: 'info', icon: 'mdi-alert-circle' }
+		]
+	})
 };
 </script>

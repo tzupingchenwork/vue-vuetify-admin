@@ -38,24 +38,24 @@ import { mapGetters } from 'vuex';
 import TheLayoutDrawerList from './TheLayoutDrawerList.vue';
 
 export default {
-  name: 'TheLayoutDrawer',
-  components: {
-    TheLayoutDrawerList,
-  },
-  data: () => ({}),
-  computed: {
-    ...mapGetters([
-      'permissionRoutes',
-      'navbarDense',
-      'navbarShow',
-      'navbarLogo',
-      'toolbarDense',
-    ]),
-  },
-  methods: {
-    stateNavbarShow(state) {
-      this.$store.dispatch('NavbarState', { state });
-    },
-  },
+	name: 'TheLayoutDrawer',
+	components: {
+		TheLayoutDrawerList
+	},
+	data: () => ({}),
+	computed: {
+		...mapGetters([
+			'permissionRoutes',
+			'navbarDense',
+			'navbarShow',
+			'navbarLogo',
+			'toolbarDense'
+		])
+	},
+	methods: {
+		stateNavbarShow (state) {
+			this.$store.dispatch('NavbarState', { state });
+		}
+	}
 };
 </script>

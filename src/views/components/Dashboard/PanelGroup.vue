@@ -46,9 +46,9 @@
 import PanelGroupItem from './PanelGroupItem.vue';
 
 export default {
-  name: 'PanelGroup',
-  components: {
-    PanelGroupItem,
-  },
+	name: 'PanelGroup',
+	components: {
+		PanelGroupItem
+	}
 };
 </script>

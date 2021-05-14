@@ -59,12 +59,12 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Parallax',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    page: 1,
-  }),
+	name: 'Parallax',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		page: 1
+	})
 };
 </script>

@@ -12,10 +12,10 @@
 import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
-  name: 'Editor',
-  components: {
-    AppCenter,
-  },
+	name: 'Editor',
+	components: {
+		AppCenter
+	}
 };
 </script>
 

@@ -64,41 +64,41 @@ import { mapGetters } from 'vuex';
 import draggable from 'vuedraggable';
 
 export default {
-  name: 'Kanban',
-  components: {
-    draggable,
-  },
-  props: {
-    headerText: {
-      type: String,
-      default: 'Header',
-    },
-    headerColor: {
-      type: String,
-      default: 'pink',
-    },
-    options: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-    list: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-  },
-  computed: {
-    ...mapGetters([
-      'toolbarDense',
-    ]),
-  },
-  methods: {
-    log: (evt) => {
-      window.console.log(evt);
-    },
-  },
+	name: 'Kanban',
+	components: {
+		draggable
+	},
+	props: {
+		headerText: {
+			type: String,
+			default: 'Header'
+		},
+		headerColor: {
+			type: String,
+			default: 'pink'
+		},
+		options: {
+			type: Object,
+			default () {
+				return {};
+			}
+		},
+		list: {
+			type: Array,
+			default () {
+				return [];
+			}
+		}
+	},
+	computed: {
+		...mapGetters([
+			'toolbarDense'
+		])
+	},
+	methods: {
+		log: (evt) => {
+			window.console.log(evt);
+		}
+	}
 };
 </script>

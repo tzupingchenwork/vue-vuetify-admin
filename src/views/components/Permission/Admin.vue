@@ -12,9 +12,9 @@
 import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
-  name: 'Admin',
-  components: {
-    AppCenter,
-  },
+	name: 'Admin',
+	components: {
+		AppCenter
+	}
 };
 </script>

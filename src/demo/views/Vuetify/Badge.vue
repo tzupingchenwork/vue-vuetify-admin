@@ -91,10 +91,10 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Badge',
-  components: {
-    AppWidget,
-  },
-  data: () => ({}),
+	name: 'Badge',
+	components: {
+		AppWidget
+	},
+	data: () => ({})
 };
 </script>

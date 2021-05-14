@@ -246,20 +246,20 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Chip',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    chips: ['Programming', 'Watching', 'Sleeping'],
-    chip1: true,
-    chip2: true,
-  }),
-  methods: {
-    remove(item) {
-      this.chips.splice(this.chips.indexOf(item), 1);
-      this.chips = [...this.chips];
-    },
-  },
+	name: 'Chip',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		chips: ['Programming', 'Watching', 'Sleeping'],
+		chip1: true,
+		chip2: true
+	}),
+	methods: {
+		remove (item) {
+			this.chips.splice(this.chips.indexOf(item), 1);
+			this.chips = [...this.chips];
+		}
+	}
 };
 </script>

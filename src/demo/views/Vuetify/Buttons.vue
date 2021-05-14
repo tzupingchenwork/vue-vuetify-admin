@@ -633,34 +633,34 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Buttons',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    text: 'center',
-    icon: 'justify',
-    toggleNone: null,
-    toggleOne: 0,
-    toggleExclusive: 2,
-    toggleMultiple: [0, 1, 2],
-    loader: null,
-    loading: false,
-    loading2: false,
-    loading3: false,
-    loading4: false,
-  }),
-  watch: {
-    loader() {
-      const l = this.loader;
-      this[l] = !this[l];
+	name: 'Buttons',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		text: 'center',
+		icon: 'justify',
+		toggleNone: null,
+		toggleOne: 0,
+		toggleExclusive: 2,
+		toggleMultiple: [0, 1, 2],
+		loader: null,
+		loading: false,
+		loading2: false,
+		loading3: false,
+		loading4: false
+	}),
+	watch: {
+		loader () {
+			const l = this.loader;
+			this[l] = !this[l];
 
-      setTimeout(() => {
-        this[l] = false;
-      }, 3000);
-      this.loader = null;
-    },
-  },
+			setTimeout(() => {
+				this[l] = false;
+			}, 3000);
+			this.loader = null;
+		}
+	}
 };
 </script>
 

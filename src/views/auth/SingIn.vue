@@ -115,32 +115,32 @@ import { userAdmin, userEditor } from '@/api/mock';
 import Localization from '../widget/AppLocalization.vue';
 
 export default {
-  name: 'SingIn',
-  components: { Localization },
-  data: () => ({
-    loading: false,
-    model: {
-      email: userAdmin.email,
-      password: userAdmin.password,
-    },
-  }),
-  methods: {
-    async login() {
-      await this.$store.dispatch('LoginByEmail', {
-        email: this.model.email,
-        password: this.model.password,
-      });
-      await this.$router.push(this.$route.query.redirect || '/');
-    },
-    setUserToLogin(id) {
-      if (id) {
-        this.model.email = userAdmin.email;
-        this.model.password = userAdmin.password;
-      } else {
-        this.model.email = userEditor.email;
-        this.model.password = userEditor.password;
-      }
-    },
-  },
+	name: 'SingIn',
+	components: { Localization },
+	data: () => ({
+		loading: false,
+		model: {
+			email: userAdmin.email,
+			password: userAdmin.password
+		}
+	}),
+	methods: {
+		async login () {
+			await this.$store.dispatch('LoginByEmail', {
+				email: this.model.email,
+				password: this.model.password
+			});
+			await this.$router.push(this.$route.query.redirect || '/');
+		},
+		setUserToLogin (id) {
+			if (id) {
+				this.model.email = userAdmin.email;
+				this.model.password = userAdmin.password;
+			} else {
+				this.model.email = userEditor.email;
+				this.model.password = userEditor.password;
+			}
+		}
+	}
 };
 </script>

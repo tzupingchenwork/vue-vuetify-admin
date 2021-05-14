@@ -230,25 +230,25 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Progress',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    interval: {},
-    value: 0,
-  }),
-  beforeDestroy() {
-    clearInterval(this.interval);
-  },
-  mounted() {
-    this.interval = setInterval(() => {
-      if (this.value === 100) {
-        return (this.value === 0);
-      }
-      this.value += 10;
-      return false;
-    }, 1000);
-  },
+	name: 'Progress',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		interval: {},
+		value: 0
+	}),
+	beforeDestroy () {
+		clearInterval(this.interval);
+	},
+	mounted () {
+		this.interval = setInterval(() => {
+			if (this.value === 100) {
+				return (this.value === 0);
+			}
+			this.value += 10;
+			return false;
+		}, 1000);
+	}
 };
 </script>

@@ -145,18 +145,18 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Snackbar',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    snackbar: false,
-    y: 'top',
-    x: null,
-    mode: '',
-    timeout: 6000,
-    color: '',
-    text: 'Hello, I\'m a snackbar',
-  }),
+	name: 'Snackbar',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		snackbar: false,
+		y: 'top',
+		x: null,
+		mode: '',
+		timeout: 6000,
+		color: '',
+		text: 'Hello, I\'m a snackbar'
+	})
 };
 </script>

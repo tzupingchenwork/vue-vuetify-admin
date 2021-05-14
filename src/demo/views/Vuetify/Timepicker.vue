@@ -146,19 +146,19 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Timepicker',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    picker: null,
-    picker2: null,
-    arrayEvents: null,
-    date1: null,
-    date2: null,
-    date: null,
-    menu: false,
-    modal: false,
-  }),
+	name: 'Timepicker',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		picker: null,
+		picker2: null,
+		arrayEvents: null,
+		date1: null,
+		date2: null,
+		date: null,
+		menu: false,
+		modal: false
+	})
 };
 </script>

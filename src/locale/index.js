@@ -16,49 +16,49 @@ import ru from './ru_RU';
 Vue.use(VueI18n);
 
 const messages = {
-  en: {
-    ...en,
-    $vuetify: vuetify.en,
-  },
-  zh: {
-    ...zh,
-    $vuetify: vuetify.zh,
-  },
-  ru: {
-    ...ru,
-    $vuetify: vuetify.ru,
-  },
+	en: {
+		...en,
+		$vuetify: vuetify.en
+	},
+	zh: {
+		...zh,
+		$vuetify: vuetify.zh
+	},
+	ru: {
+		...ru,
+		$vuetify: vuetify.ru
+	}
 };
 
 /**
  * Available locales
  */
 export const locales = [
-  {
-    title: 'English',
-    locale: 'en',
-    abbr: 'ENG',
-  },
-  {
-    title: '中文',
-    locale: 'zh',
-    abbr: 'CHN',
-  },
-  {
-    title: 'Русский',
-    locale: 'ru',
-    abbr: 'RUS',
-  },
+	{
+		title: 'English',
+		locale: 'en',
+		abbr: 'ENG'
+	},
+	{
+		title: '中文',
+		locale: 'zh',
+		abbr: 'CHN'
+	},
+	{
+		title: 'Русский',
+		locale: 'ru',
+		abbr: 'RUS'
+	}
 ];
 
 /**
  * VueI18n instance
  */
 const i18n = new VueI18n({
-  // set locale options: en_US | zh_CN | ru_RU
-  locale: settings.locale,
-  // set locale messages
-  messages,
+	// set locale options: en_US | zh_CN | ru_RU
+	locale: settings.locale,
+	// set locale messages
+	messages
 });
 
 /**
@@ -66,13 +66,13 @@ const i18n = new VueI18n({
  *
  * @param {Boolean} newLocale themeDark new value
  */
-export async function setLocale(locale) {
-  if (i18n.locale !== locale) {
-    console.log(`[Locale] Set to "${locale}"`);
-    i18n.locale = locale || settings.locale;
-  } else {
-    console.warn(`[Locale] "${locale}" is current`);
-  }
+export async function setLocale (locale) {
+	if (i18n.locale !== locale) {
+		console.log(`[Locale] Set to "${locale}"`);
+		i18n.locale = locale || settings.locale;
+	} else {
+		console.warn(`[Locale] "${locale}" is current`);
+	}
 }
 
 export default i18n;

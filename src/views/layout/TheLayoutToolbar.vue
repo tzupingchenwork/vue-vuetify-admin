@@ -26,29 +26,29 @@ import Notification from '../widget/AppNotification.vue';
 import Profile from '../widget/AppProfile.vue';
 
 export default {
-  name: 'TheLayoutToolbar',
-  components: {
-    Breadcrumbs,
-    ErrorLog,
-    FullScreen,
-    Localization,
-    Notification,
-    Profile,
-  },
-  data: () => ({}),
-  computed: {
-    ...mapGetters([
-      'toolbarDense',
-      'navbarShow',
-    ]),
-    toggleNavbarIcon() {
-      return this.navbarShow ? 'mdi-format-indent-decrease' : 'mdi-format-indent-increase';
-    },
-  },
-  methods: {
-    toggleNavbar() {
-      this.$store.dispatch('NavbarToggle');
-    },
-  },
+	name: 'TheLayoutToolbar',
+	components: {
+		Breadcrumbs,
+		ErrorLog,
+		FullScreen,
+		Localization,
+		Notification,
+		Profile
+	},
+	data: () => ({}),
+	computed: {
+		...mapGetters([
+			'toolbarDense',
+			'navbarShow'
+		]),
+		toggleNavbarIcon () {
+			return this.navbarShow ? 'mdi-format-indent-decrease' : 'mdi-format-indent-increase';
+		}
+	},
+	methods: {
+		toggleNavbar () {
+			this.$store.dispatch('NavbarToggle');
+		}
+	}
 };
 </script>

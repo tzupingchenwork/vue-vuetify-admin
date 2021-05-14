@@ -40,44 +40,44 @@
 import CountTo from 'vue-count-to';
 
 export default {
-  name: 'PanelGroupItem',
-  components: {
-    CountTo,
-  },
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    icon: {
-      type: String,
-      required: true,
-    },
-    color: {
-      type: String,
-      required: true,
-    },
-    chart: {
-      type: String,
-      required: true,
-    },
-    start: {
-      type: Number,
-      required: true,
-    },
-    end: {
-      type: Number,
-      required: true,
-    },
-    duration: {
-      type: Number,
-      required: true,
-    },
-  },
-  methods: {
-    handleSetLineChartData(type) {
-      this.$parent.$emit('handleSetLineChartData', type);
-    },
-  },
+	name: 'PanelGroupItem',
+	components: {
+		CountTo
+	},
+	props: {
+		title: {
+			type: String,
+			required: true
+		},
+		icon: {
+			type: String,
+			required: true
+		},
+		color: {
+			type: String,
+			required: true
+		},
+		chart: {
+			type: String,
+			required: true
+		},
+		start: {
+			type: Number,
+			required: true
+		},
+		end: {
+			type: Number,
+			required: true
+		},
+		duration: {
+			type: Number,
+			required: true
+		}
+	},
+	methods: {
+		handleSetLineChartData (type) {
+			this.$parent.$emit('handleSetLineChartData', type);
+		}
+	}
 };
 </script>

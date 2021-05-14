@@ -140,32 +140,32 @@
 import countTo from 'vue-count-to';
 
 export default {
-  name: 'CountToDemo',
-  components: { countTo },
-  data: () => ({
-    startVal: 0,
-    endVal: 2019,
-    duration: 4000,
-    decimals: 0,
-    separator: ',',
-    suffix: ' usd',
-    prefix: '$ ',
-  }),
-  computed: {
-    countTo() {
-      return `<count-to :start-val="${this.startVal}"; :end-val="${this.endVal}" `
-        + `:duration="${this.duration}" :decimals="${this.decimals}" `
-        + `:separator="${this.separator}" :prefix="${this.prefix}" `
-        + `:suffix="${this.suffix}" :autoplay=false >`;
-    },
-  },
-  methods: {
-    start() {
-      this.$refs.example.start();
-    },
-    pauseResume() {
-      this.$refs.example.pauseResume();
-    },
-  },
+	name: 'CountToDemo',
+	components: { countTo },
+	data: () => ({
+		startVal: 0,
+		endVal: 2019,
+		duration: 4000,
+		decimals: 0,
+		separator: ',',
+		suffix: ' usd',
+		prefix: '$ '
+	}),
+	computed: {
+		countTo () {
+			return `<count-to :start-val="${this.startVal}"; :end-val="${this.endVal}" ` +
+        `:duration="${this.duration}" :decimals="${this.decimals}" ` +
+        `:separator="${this.separator}" :prefix="${this.prefix}" ` +
+        `:suffix="${this.suffix}" :autoplay=false >`;
+		}
+	},
+	methods: {
+		start () {
+			this.$refs.example.start();
+		},
+		pauseResume () {
+			this.$refs.example.pauseResume();
+		}
+	}
 };
 </script>

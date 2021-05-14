@@ -26,21 +26,21 @@ import AppCenter from '@/views/widget/AppCenter.vue';
 import steps from './defineSteps';
 
 export default {
-  name: 'Guide',
-  components: {
-    AppCenter,
-  },
-  data: () => ({
-    driver: null,
-  }),
-  mounted() {
-    this.driver = new Driver();
-  },
-  methods: {
-    guide() {
-      this.driver.defineSteps(steps);
-      this.driver.start();
-    },
-  },
+	name: 'Guide',
+	components: {
+		AppCenter
+	},
+	data: () => ({
+		driver: null
+	}),
+	mounted () {
+		this.driver = new Driver();
+	},
+	methods: {
+		guide () {
+			this.driver.defineSteps(steps);
+			this.driver.start();
+		}
+	}
 };
 </script>

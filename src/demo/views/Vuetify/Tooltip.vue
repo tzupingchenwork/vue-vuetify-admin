@@ -144,12 +144,12 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Tooltip',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    show: false,
-  }),
+	name: 'Tooltip',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		show: false
+	})
 };
 </script>

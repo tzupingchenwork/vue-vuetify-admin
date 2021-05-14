@@ -357,9 +357,9 @@
 import { lorem } from '@/api/mock';
 
 export default {
-  name: 'Grid',
-  data: () => ({
-    lorem,
-  }),
+	name: 'Grid',
+	data: () => ({
+		lorem
+	})
 };
 </script>

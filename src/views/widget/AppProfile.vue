@@ -89,56 +89,56 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'AppProfile',
-  data() {
-    return {
-      menuitems: [
-        {
-          icon: 'mdi-account',
-          href: '#',
-          title: 'toolbar.profile',
-          click: (e) => {
-            console.log(e);
-          },
-        },
-        {
-          icon: 'mdi-settings',
-          href: '#',
-          title: 'toolbar.settings',
-          click: () => {
-            console.log('this.toggleSettingsPanel()');
-            this.toggleSettingsPanel();
-          },
-        },
-        {
-          icon: 'mdi-exit-to-app',
-          href: '#',
-          title: 'toolbar.logout',
-          click: () => {
-            this.logout();
-          },
-        },
-      ],
-    };
-  },
-  computed: {
-    ...mapGetters([
-      'user',
-      'name',
-      'avatar',
-      'status',
-    ]),
-  },
-  methods: {
-    logout() {
-      this.$store.dispatch('LogOut');
-      this.$router.push('/landing');
-    },
-    toggleSettingsPanel() {
-      console.log('this.toggleSettingsPanel()111');
-      this.$vuetify.goTo(0);
-      this.$store.dispatch('SettingsPanelToggle');
-    },
-  },
+	name: 'AppProfile',
+	data () {
+		return {
+			menuitems: [
+				{
+					icon: 'mdi-account',
+					href: '#',
+					title: 'toolbar.profile',
+					click: (e) => {
+						console.log(e);
+					}
+				},
+				{
+					icon: 'mdi-settings',
+					href: '#',
+					title: 'toolbar.settings',
+					click: () => {
+						console.log('this.toggleSettingsPanel()');
+						this.toggleSettingsPanel();
+					}
+				},
+				{
+					icon: 'mdi-exit-to-app',
+					href: '#',
+					title: 'toolbar.logout',
+					click: () => {
+						this.logout();
+					}
+				}
+			]
+		};
+	},
+	computed: {
+		...mapGetters([
+			'user',
+			'name',
+			'avatar',
+			'status'
+		])
+	},
+	methods: {
+		logout () {
+			this.$store.dispatch('LogOut');
+			this.$router.push('/landing');
+		},
+		toggleSettingsPanel () {
+			console.log('this.toggleSettingsPanel()111');
+			this.$vuetify.goTo(0);
+			this.$store.dispatch('SettingsPanelToggle');
+		}
+	}
 };
 </script>

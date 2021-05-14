@@ -158,27 +158,27 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Datepicker',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    picker: null,
-    picker2: null,
-    arrayEvents: null,
-    date1: null,
-    date2: null,
-    date: null,
-    menu: false,
-    modal: false,
-  }),
-  mounted() {
-    this.arrayEvents = [...Array(6)].map(() => {
-      const day = Math.floor(Math.random() * 30);
-      const d = new Date();
-      d.setDate(day);
-      return d.toISOString().substr(0, 10);
-    });
-  },
+	name: 'Datepicker',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		picker: null,
+		picker2: null,
+		arrayEvents: null,
+		date1: null,
+		date2: null,
+		date: null,
+		menu: false,
+		modal: false
+	}),
+	mounted () {
+		this.arrayEvents = [...Array(6)].map(() => {
+			const day = Math.floor(Math.random() * 30);
+			const d = new Date();
+			d.setDate(day);
+			return d.toISOString().substr(0, 10);
+		});
+	}
 };
 </script>

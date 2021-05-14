@@ -95,85 +95,85 @@ import { mapGetters } from 'vuex';
 import AppTheme from '@/views/widget/AppTheme.vue';
 
 export default {
-  name: 'TheLayoutFab',
-  components: { AppTheme },
-  data: () => ({}),
-  computed: {
-    ...mapGetters([
-      'version',
-      'themeDark',
-      'settingsPanelBtn',
-      'settingsPanelShow',
-      'toolbarDense',
-      'navbarDense',
-      'navbarLogo',
-      'footerShow',
-    ]),
-    switches() {
-      return [
-        {
-          value: this.toolbarDense,
-          label: `${this.$t('settings.toolbarDense')}: ${this.toolbarDense ? 'on' : 'off'}`,
-          change: this.toggleToolbarDense,
-        },
-        {
-          value: this.navbarDense,
-          label: `${this.$t('settings.navbarDense')}: ${this.navbarDense ? 'on' : 'off'}`,
-          change: this.toggleNavbarDense,
-        },
-        {
-          value: this.navbarLogo,
-          label: `${this.$t('settings.navbarLogo')}: ${this.navbarLogo ? 'on' : 'off'}`,
-          change: this.toggleNavbarLogo,
-        },
-        {
-          value: this.settingsPanelBtn,
-          label: `${this.$t('settings.settingsBtn')}: ${this.settingsPanelBtn ? 'on' : 'off'}`,
-          change: this.toggleSettingsPanelBtn,
-        },
-        {
-          value: this.footerShow,
-          label: `${this.$t('settings.footer')}: 'off'`,
-          change: this.toggleFooterToggle,
-        },
-        {
-          value: this.themeDark,
-          label: `${this.$t('settings.dark')}: 'off'`,
-          change: this.toogleThemeDark,
-        },
-      ];
-    },
-  },
-  methods: {
-    stateSettingsPanel(state) {
-      this.$store.dispatch('SettingsPanelState', { state });
-    },
-    toggleSettingsPanel() {
-      this.$vuetify.goTo(0);
-      this.$store.dispatch('SettingsPanelToggle');
-    },
-    toogleThemeDark() {
-      this.$store.dispatch('ThemeDarkToggle');
-    },
-    toggleToolbarDense() {
-      this.$store.dispatch('ToolbarDenseToggle');
-    },
-    toggleNavbarDense() {
-      this.$store.dispatch('NavbarDenseToggle');
-    },
-    toggleNavbarLogo() {
-      this.$store.dispatch('NavbarLogoToggle');
-    },
-    toggleSettingsPanelBtn() {
-      this.$store.dispatch('SettingsPanelBtnToggle');
-    },
-    toggleFooterToggle() {
-      this.$store.dispatch('FooterToggle');
-    },
-    setDefaultSettingsPanel() {
-      this.$store.dispatch('SettingsPanelDefault');
-    },
-  },
+	name: 'TheLayoutFab',
+	components: { AppTheme },
+	data: () => ({}),
+	computed: {
+		...mapGetters([
+			'version',
+			'themeDark',
+			'settingsPanelBtn',
+			'settingsPanelShow',
+			'toolbarDense',
+			'navbarDense',
+			'navbarLogo',
+			'footerShow'
+		]),
+		switches () {
+			return [
+				{
+					value: this.toolbarDense,
+					label: `${this.$t('settings.toolbarDense')}: ${this.toolbarDense ? 'on' : 'off'}`,
+					change: this.toggleToolbarDense
+				},
+				{
+					value: this.navbarDense,
+					label: `${this.$t('settings.navbarDense')}: ${this.navbarDense ? 'on' : 'off'}`,
+					change: this.toggleNavbarDense
+				},
+				{
+					value: this.navbarLogo,
+					label: `${this.$t('settings.navbarLogo')}: ${this.navbarLogo ? 'on' : 'off'}`,
+					change: this.toggleNavbarLogo
+				},
+				{
+					value: this.settingsPanelBtn,
+					label: `${this.$t('settings.settingsBtn')}: ${this.settingsPanelBtn ? 'on' : 'off'}`,
+					change: this.toggleSettingsPanelBtn
+				},
+				{
+					value: this.footerShow,
+					label: `${this.$t('settings.footer')}: 'off'`,
+					change: this.toggleFooterToggle
+				},
+				{
+					value: this.themeDark,
+					label: `${this.$t('settings.dark')}: 'off'`,
+					change: this.toogleThemeDark
+				}
+			];
+		}
+	},
+	methods: {
+		stateSettingsPanel (state) {
+			this.$store.dispatch('SettingsPanelState', { state });
+		},
+		toggleSettingsPanel () {
+			this.$vuetify.goTo(0);
+			this.$store.dispatch('SettingsPanelToggle');
+		},
+		toogleThemeDark () {
+			this.$store.dispatch('ThemeDarkToggle');
+		},
+		toggleToolbarDense () {
+			this.$store.dispatch('ToolbarDenseToggle');
+		},
+		toggleNavbarDense () {
+			this.$store.dispatch('NavbarDenseToggle');
+		},
+		toggleNavbarLogo () {
+			this.$store.dispatch('NavbarLogoToggle');
+		},
+		toggleSettingsPanelBtn () {
+			this.$store.dispatch('SettingsPanelBtnToggle');
+		},
+		toggleFooterToggle () {
+			this.$store.dispatch('FooterToggle');
+		},
+		setDefaultSettingsPanel () {
+			this.$store.dispatch('SettingsPanelDefault');
+		}
+	}
 };
 </script>
 

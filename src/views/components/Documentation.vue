@@ -25,9 +25,9 @@
 import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
-  name: 'Documentation',
-  components: {
-    AppCenter,
-  },
+	name: 'Documentation',
+	components: {
+		AppCenter
+	}
 };
 </script>

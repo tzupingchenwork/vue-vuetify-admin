@@ -152,27 +152,27 @@ const content = `
 
 `;
 export default {
-  name: 'MarkdownDemo',
-  components: { MarkdownEditor },
-  data: () => ({
-    content,
-    html: '',
-    languageTypeList: {
-      en: 'en_US',
-      ru: 'ru_RU',
-      es: 'es_ES',
-    },
-  }),
-  computed: {
-    language() {
-      return this.languageTypeList[this.$store.getters.language];
-    },
-  },
-  methods: {
-    getHtml() {
-      this.html = this.$refs.markdownEditor.getHtml();
-      console.log(this.html);
-    },
-  },
+	name: 'MarkdownDemo',
+	components: { MarkdownEditor },
+	data: () => ({
+		content,
+		html: '',
+		languageTypeList: {
+			en: 'en_US',
+			ru: 'ru_RU',
+			es: 'es_ES'
+		}
+	}),
+	computed: {
+		language () {
+			return this.languageTypeList[this.$store.getters.language];
+		}
+	},
+	methods: {
+		getHtml () {
+			this.html = this.$refs.markdownEditor.getHtml();
+			console.log(this.html);
+		}
+	}
 };
 </script>

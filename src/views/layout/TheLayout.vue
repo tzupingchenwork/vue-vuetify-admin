@@ -18,15 +18,15 @@ import TheLayoutToTopFab from './TheLayoutToTopFab.vue';
 import TheLayoutFooter from './TheLayoutFooter.vue';
 
 export default {
-  name: 'TheLayout',
-  components: {
-    TheLayoutDrawer,
-    TheLayoutToolbar,
-    TheLayoutContent,
-    TheLayoutFab,
-    TheLayoutToTopFab,
-    TheLayoutFooter,
-  },
-  data: () => ({}),
+	name: 'TheLayout',
+	components: {
+		TheLayoutDrawer,
+		TheLayoutToolbar,
+		TheLayoutContent,
+		TheLayoutFab,
+		TheLayoutToTopFab,
+		TheLayoutFooter
+	},
+	data: () => ({})
 };
 </script>

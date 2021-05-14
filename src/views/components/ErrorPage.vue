@@ -20,16 +20,16 @@
 import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
-  name: 'ErrorPage',
-  components: {
-    AppCenter,
-  },
-  props: {
-    errorCode: {
-      type: Number,
-      default: 404,
-    },
-  },
-  data: () => ({}),
+	name: 'ErrorPage',
+	components: {
+		AppCenter
+	},
+	props: {
+		errorCode: {
+			type: Number,
+			default: 404
+		}
+	},
+	data: () => ({})
 };
 </script>

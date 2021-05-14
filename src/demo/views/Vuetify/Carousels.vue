@@ -44,17 +44,17 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Carousels',
-  components: {
-    AppWidget,
-  },
-  data: () => ({
-    items: [
-      { src: './static/nature/n1.jpeg' },
-      { src: './static/nature/n2.jpeg' },
-      { src: './static/nature/n3.jpeg' },
-      { src: './static/nature/n4.jpeg' },
-    ],
-  }),
+	name: 'Carousels',
+	components: {
+		AppWidget
+	},
+	data: () => ({
+		items: [
+			{ src: './static/nature/n1.jpeg' },
+			{ src: './static/nature/n2.jpeg' },
+			{ src: './static/nature/n3.jpeg' },
+			{ src: './static/nature/n4.jpeg' }
+		]
+	})
 };
 </script>

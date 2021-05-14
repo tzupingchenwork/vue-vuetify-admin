@@ -81,10 +81,10 @@
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
-  name: 'Typography',
-  components: {
-    AppWidget,
-  },
-  data: () => ({}),
+	name: 'Typography',
+	components: {
+		AppWidget
+	},
+	data: () => ({})
 };
 </script>
