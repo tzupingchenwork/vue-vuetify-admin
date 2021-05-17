@@ -10,7 +10,7 @@ import VueI18n from 'vue-i18n';
 import { settings } from '@/config';
 import vuetify from '@/locale/vuetify';
 import en from './en_US';
-import zh from './zh_CN';
+import zh from './zh_TW';
 import ru from './ru_RU';
 
 Vue.use(VueI18n);
@@ -66,7 +66,7 @@ const i18n = new VueI18n({
  *
  * @param {Boolean} newLocale themeDark new value
  */
-export async function setLocale (locale) {
+export async function setLocale(locale) {
 	if (i18n.locale !== locale) {
 		console.log(`[Locale] Set to "${locale}"`);
 		i18n.locale = locale || settings.locale;
