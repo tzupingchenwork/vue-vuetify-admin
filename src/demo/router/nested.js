@@ -18,7 +18,10 @@ const nestedRouter = {
 			component: Nasted,
 			name: 'Nested1',
 			meta: {
-				title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+				title: 'route.nested.nested1',
+				icon: 'looks_two',
+				noCache: true,
+				affix: true
 			},
 			children: [
 				{
@@ -26,7 +29,10 @@ const nestedRouter = {
 					component: Nasted,
 					name: 'Nested1_1',
 					meta: {
-						title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+						title: 'route.nested.nested2',
+						icon: 'looks_3',
+						noCache: true,
+						affix: true
 					},
 					children: [
 						{
@@ -34,7 +40,10 @@ const nestedRouter = {
 							component: Nasted,
 							name: 'Nested1_1_1',
 							meta: {
-								title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+								title: 'route.nested.nested3',
+								icon: 'looks_4',
+								noCache: true,
+								affix: true
 							}
 						},
 						{
@@ -42,7 +51,10 @@ const nestedRouter = {
 							component: Nasted,
 							name: 'Nested1_1_2',
 							meta: {
-								title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+								title: 'route.nested.nested3',
+								icon: 'looks_4',
+								noCache: true,
+								affix: true
 							}
 						},
 						{
@@ -50,7 +62,10 @@ const nestedRouter = {
 							component: Nasted,
 							name: 'Nested1_1_3',
 							meta: {
-								title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+								title: 'route.nested.nested3',
+								icon: 'looks_4',
+								noCache: true,
+								affix: true
 							}
 						}
 					]
@@ -60,7 +75,10 @@ const nestedRouter = {
 					component: Nasted,
 					name: 'Nested1_2',
 					meta: {
-						title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+						title: 'route.nested.nested2',
+						icon: 'looks_3',
+						noCache: true,
+						affix: true
 					}
 				},
 				{
@@ -68,7 +86,10 @@ const nestedRouter = {
 					component: Nasted,
 					name: 'Nested1_3',
 					meta: {
-						title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+						title: 'route.nested.nested2',
+						icon: 'looks_3',
+						noCache: true,
+						affix: true
 					}
 				}
 			]
@@ -78,7 +99,10 @@ const nestedRouter = {
 			component: Nasted,
 			name: 'Nested2',
 			meta: {
-				title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+				title: 'route.nested.nested1',
+				icon: 'looks_two',
+				noCache: true,
+				affix: true
 			}
 		},
 		{
@@ -86,7 +110,10 @@ const nestedRouter = {
 			component: Nasted,
 			name: 'Nested3',
 			meta: {
-				title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+				title: 'route.nested.nested1',
+				icon: 'looks_two',
+				noCache: true,
+				affix: true
 			}
 		}
 	]

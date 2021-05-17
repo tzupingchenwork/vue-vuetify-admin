@@ -1,6 +1,6 @@
 <template>
-	<v-container class="container--fluid fill-height">
-		<v-row no-gutters dense align="center" justify="center">
+	<v-container class="container--fluid">
+		<v-row no-gutters dense justify="center" align="center">
 			<v-col class="text-center">
 				<slot name="page" />
 			</v-col>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-	name: 'AppCenter',
+	name: 'AppTopCenter',
 	data: () => ({})
 };
 </script>

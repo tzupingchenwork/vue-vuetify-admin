@@ -43,10 +43,7 @@ const Projects = [
 
 const getProject = (limit) => {
 	console.log(`[getProject] limit=${limit}`);
-	return (limit) ? Projects.slice(0, limit) : Projects;
+	return limit ? Projects.slice(0, limit) : Projects;
 };
 
-export {
-	Projects,
-	getProject
-};
+export { Projects, getProject };

@@ -1,11 +1,9 @@
 <template>
-  <app-center>
-    <template v-slot:page>
-      <v-col class="text-h1">
-        Visitor
-      </v-col>
-    </template>
-  </app-center>
+	<app-center>
+		<template v-slot:page>
+			<v-col class="text-h1"> Visitor </v-col>
+		</template>
+	</app-center>
 </template>
 
 <script>

@@ -42,8 +42,9 @@ export default {
 		500: 'Internal Server Error'
 	},
 	guide: {
-		description: 'The guide page is useful for some people who entered the project for ' +
-      'the first time. You can briefly introduce the features of the project. Demo is based on',
+		description:
+			'The guide page is useful for some people who entered the project for ' +
+			'the first time. You can briefly introduce the features of the project. Demo is based on',
 		button: 'Show Guide'
 	},
 	ui: {

@@ -38,7 +38,7 @@ const vuetify = new Vuetify({
  *
  * @param {Number} index new value
  */
-export async function setVuetifyTheme (index) {
+export async function setVuetifyTheme(index) {
 	if (vuetify.framework.theme.themes !== themes[index]) {
 		console.log(`[Vuetify] Change theme to "${index}"`);
 		vuetify.framework.theme.themes.light = themes[index].light || themes[0].light;
@@ -53,7 +53,7 @@ export async function setVuetifyTheme (index) {
  *
  * @param {Boolean} dark new value
  */
-export async function setVuetifyThemeDark (dark) {
+export async function setVuetifyThemeDark(dark) {
 	console.log(`[Vuetify] Change theme to "${dark ? 'dark' : 'light'}"`);
 	vuetify.framework.theme.dark = dark;
 }

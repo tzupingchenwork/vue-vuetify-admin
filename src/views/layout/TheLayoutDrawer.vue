@@ -1,36 +1,15 @@
 <template>
-  <v-navigation-drawer
-    dark
-    fixed
-    app
-    :value="navbarShow"
-    width="250"
-    @input="stateNavbarShow"
-  >
-    <v-app-bar
-      v-if="navbarLogo"
-      :dense="toolbarDense"
-      dark
-    >
-      <v-toolbar-title class="text-center">
-        <v-avatar
-          size="32px"
-          tile
-        >
-          <img
-            src="img/icons/android-icon-36x36.png"
-            alt="VVA"
-          >
-        </v-avatar>
-        <span>{{ $t('toolbar.appname') }}</span>
-      </v-toolbar-title>
-    </v-app-bar>
-    <the-layout-drawer-list
-      :dense="navbarDense"
-      :routes="permissionRoutes"
-      icon-show
-    />
-  </v-navigation-drawer>
+	<v-navigation-drawer dark fixed app :value="navbarShow" width="250" @input="stateNavbarShow">
+		<v-app-bar v-if="navbarLogo" :dense="toolbarDense" dark>
+			<v-toolbar-title class="text-center">
+				<v-avatar size="32px" tile>
+					<img src="img/icons/android-icon-36x36.png" alt="VVA" />
+				</v-avatar>
+				<span>{{ $t('toolbar.appname') }}</span>
+			</v-toolbar-title>
+		</v-app-bar>
+		<the-layout-drawer-list :dense="navbarDense" :routes="permissionRoutes" icon-show />
+	</v-navigation-drawer>
 </template>
 
 <script>
@@ -44,16 +23,10 @@ export default {
 	},
 	data: () => ({}),
 	computed: {
-		...mapGetters([
-			'permissionRoutes',
-			'navbarDense',
-			'navbarShow',
-			'navbarLogo',
-			'toolbarDense'
-		])
+		...mapGetters(['permissionRoutes', 'navbarDense', 'navbarShow', 'navbarLogo', 'toolbarDense'])
 	},
 	methods: {
-		stateNavbarShow (state) {
+		stateNavbarShow(state) {
 			this.$store.dispatch('NavbarState', { state });
 		}
 	}

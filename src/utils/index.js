@@ -4,7 +4,7 @@
  * @param {boolean} immediate
  * @return {*}
  */
-function debounce (func, wait, immediate) {
+function debounce(func, wait, immediate) {
 	let timeout;
 	let args;
 	let context;

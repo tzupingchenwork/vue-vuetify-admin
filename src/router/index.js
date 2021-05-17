@@ -4,11 +4,11 @@ import Router from 'vue-router';
 import Layout from '@/views/layout/TheLayout.vue';
 
 /* Router Modules */
-import vuetifyRouter from '@/demo/router/vuetify';
-import nestedRouter from '@/demo/router/nested';
-import componentsRouter from '@/demo/router/components';
+// import vuetifyRouter from '@/demo/router/vuetify';
+// import nestedRouter from '@/demo/router/nested';
+// import componentsRouter from '@/demo/router/components';
 import authRouter from './modules/auth';
-import errorsRouter from './modules/errors';
+// import errorsRouter from './modules/errors';
 import permissionRouter from './modules/permission';
 
 Vue.use(Router);
@@ -52,7 +52,10 @@ export const constantRoutes = [
 				component: () => import('@/views/components/Dashboard/index'),
 				name: 'Dashboard',
 				meta: {
-					title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true
+					title: 'route.dashboard',
+					icon: 'mdi-view-dashboard',
+					noCache: true,
+					affix: true
 				}
 			}
 		]
@@ -66,66 +69,69 @@ export const constantRoutes = [
 				component: () => import('@/views/components/Documentation'),
 				name: 'Documentation',
 				meta: {
-					title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true
-				}
-			}
-		]
-	},
-	{
-		path: '/',
-		component: Layout,
-		children: [
-			{
-				path: '/guide',
-				component: () => import('@/views/components/Guide'),
-				name: 'Guide',
-				meta: {
-					title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true
-				}
-			}
-		]
-	},
-	{
-		path: '/',
-		component: Layout,
-		children: [
-			{
-				path: '/roadmap',
-				component: () => import('@/views/components/Roadmap'),
-				name: 'Roadmap',
-				meta: {
-					title: 'route.roadmap',
-					icon: 'mdi-timeline-text',
+					title: 'route.documentation',
+					icon: 'mdi-text-subject',
 					noCache: true,
 					affix: true
 				}
 			}
 		]
 	},
-	{
-		path: '/',
-		component: Layout,
-		children: [
-			{
-				path: '/theme',
-				component: () => import('@/views/components/Theme.vue'),
-				name: 'Theme',
-				meta: { title: 'route.theme', icon: 'mdi-palette' }
-			}
-		]
-	},
-	{
-		path: '/',
-		component: Layout,
-		children: [
-			{
-				path: '/i18n',
-				component: () => import('@/views/components/I18n.vue'),
-				name: 'I18n',
-				meta: { title: 'route.i18n', icon: 'mdi-translate' }
-			}
-		]
-	},
+	// {
+	// 	path: '/',
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: '/guide',
+	// 			component: () => import('@/views/components/Guide'),
+	// 			name: 'Guide',
+	// 			meta: {
+	// 				title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true
+	// 			}
+	// 		}
+	// 	]
+	// },
+	// {
+	// 	path: '/',
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: '/roadmap',
+	// 			component: () => import('@/views/components/Roadmap'),
+	// 			name: 'Roadmap',
+	// 			meta: {
+	// 				title: 'route.roadmap',
+	// 				icon: 'mdi-timeline-text',
+	// 				noCache: true,
+	// 				affix: true
+	// 			}
+	// 		}
+	// 	]
+	// },
+	// {
+	// 	path: '/',
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: '/theme',
+	// 			component: () => import('@/views/components/Theme.vue'),
+	// 			name: 'Theme',
+	// 			meta: { title: 'route.theme', icon: 'mdi-palette' }
+	// 		}
+	// 	]
+	// },
+	// {
+	// 	path: '/',
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: '/i18n',
+	// 			component: () => import('@/views/components/I18n.vue'),
+	// 			name: 'I18n',
+	// 			meta: { title: 'route.i18n', icon: 'mdi-translate' }
+	// 		}
+	// 	]
+	// },
 
 	...authRouter
 ];
@@ -139,9 +145,9 @@ export default new Router({
 export const asyncRoutes = [
 	/** When your routing table is too long, you can split it into small modules */
 	permissionRouter,
-	vuetifyRouter,
-	...componentsRouter,
-	nestedRouter,
-	errorsRouter,
+	// vuetifyRouter,
+	// ...componentsRouter,
+	// nestedRouter,
+	// errorsRouter,
 	{ path: '*', redirect: '/error/404', hidden: true }
 ];

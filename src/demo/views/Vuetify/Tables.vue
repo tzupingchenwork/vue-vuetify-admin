@@ -1,127 +1,84 @@
 <template>
-  <v-container class="container--fluid">
-    <app-widget
-      title="Complex Table"
-      padding-hide
-    >
-      <div slot="widget-content">
-        <v-app-bar
-          card
-          color="white"
-        >
-          <v-text-field
-            v-model="search"
-            flat
-            solo
-            prepend-icon="search"
-            placeholder="Type something"
-            hide-details
-            class="hidden-sm-and-down"
-          />
-          <v-btn icon>
-            <v-icon>mdi-filter</v-icon>
-          </v-btn>
-        </v-app-bar>
-        <v-divider />
-        <v-card-text class="pa-0">
-          <v-data-table
-            v-model="complex.selected"
-            :headers="complex.headers"
-            :search="search"
-            :items="complex.items"
-            :rows-per-page-items="[10,25,50,{text: 'All','value': -1}]"
-            class="elevation-1"
-            item-key="name"
-            select-all
-          >
-            <template
-              slot="items"
-              slot-scope="props"
-            >
-              <td>
-                <v-checkbox
-                  v-model="props.selected"
-                  primary
-                  hide-details
-                />
-              </td>
-              <td>
-                <v-avatar size="32">
-                  <img
-                    :src="props.item.avatar"
-                    alt=""
-                  >
-                </v-avatar>
-              </td>
-              <td>{{ props.item.name }}</td>
-              <td>{{ props.item.email }}</td>
-              <td>{{ props.item.phone }}</td>
-              <td>
-                <v-btn
-                  depressed
-                  outlined
-                  icon
-                  fab
-                  dark
-                  color="primary"
-                  small
-                >
-                  <v-icon>edit</v-icon>
-                </v-btn>
-                <v-btn
-                  depressed
-                  outlined
-                  icon
-                  fab
-                  dark
-                  color="pink"
-                  small
-                >
-                  <v-icon>delete</v-icon>
-                </v-btn>
-              </td>
-            </template>
-          </v-data-table>
-        </v-card-text>
-      </div>
-    </app-widget>
-    <br>
-    <app-widget
-      title="Basic Table"
-      padding-hide
-    >
-      <div slot="widget-content">
-        <v-data-table
-          :headers="basic.headers"
-          :items="basic.items"
-          hide-default-footer
-          class="elevation-1"
-        >
-          <template
-            slot="items"
-            slot-scope="props"
-          >
-            <td>{{ props.item.name }}</td>
-            <td class="text-right">
-              {{ props.item.calories }}
-            </td>
-            <td class="text-right">
-              {{ props.item.fat }}
-            </td>
-            <td class="text-right">
-              {{ props.item.carbs }}
-            </td>
-            <td class="text-right">
-              {{ props.item.protein }}
-            </td>
-            <td class="text-right">
-              {{ props.item.iron }}
-            </td>
-          </template>
-        </v-data-table>
-      </div>
-    </app-widget>
-  </v-container>
+	<v-container class="container--fluid">
+		<app-widget title="Complex Table" padding-hide>
+			<div slot="widget-content">
+				<v-app-bar card color="white">
+					<v-text-field
+						v-model="search"
+						flat
+						solo
+						prepend-icon="search"
+						placeholder="Type something"
+						hide-details
+						class="hidden-sm-and-down"
+					/>
+					<v-btn icon>
+						<v-icon>mdi-filter</v-icon>
+					</v-btn>
+				</v-app-bar>
+				<v-divider />
+				<v-card-text class="pa-0">
+					<v-data-table
+						v-model="complex.selected"
+						:headers="complex.headers"
+						:search="search"
+						:items="complex.items"
+						:rows-per-page-items="[10, 25, 50, { text: 'All', value: -1 }]"
+						class="elevation-1"
+						item-key="name"
+						select-all
+					>
+						<template slot="items" slot-scope="props">
+							<td>
+								<v-checkbox v-model="props.selected" primary hide-details />
+							</td>
+							<td>
+								<v-avatar size="32">
+									<img :src="props.item.avatar" alt="" />
+								</v-avatar>
+							</td>
+							<td>{{ props.item.name }}</td>
+							<td>{{ props.item.email }}</td>
+							<td>{{ props.item.phone }}</td>
+							<td>
+								<v-btn depressed outlined icon fab dark color="primary" small>
+									<v-icon>edit</v-icon>
+								</v-btn>
+								<v-btn depressed outlined icon fab dark color="pink" small>
+									<v-icon>delete</v-icon>
+								</v-btn>
+							</td>
+						</template>
+					</v-data-table>
+				</v-card-text>
+			</div>
+		</app-widget>
+		<br />
+		<app-widget title="Basic Table" padding-hide>
+			<div slot="widget-content">
+				<v-data-table :headers="basic.headers" :items="basic.items" hide-default-footer class="elevation-1">
+					<template slot="items" slot-scope="props">
+						<td>{{ props.item.name }}</td>
+						<td class="text-right">
+							{{ props.item.calories }}
+						</td>
+						<td class="text-right">
+							{{ props.item.fat }}
+						</td>
+						<td class="text-right">
+							{{ props.item.carbs }}
+						</td>
+						<td class="text-right">
+							{{ props.item.protein }}
+						</td>
+						<td class="text-right">
+							{{ props.item.iron }}
+						</td>
+					</template>
+				</v-data-table>
+			</div>
+		</app-widget>
+	</v-container>
 </template>
 
 <script>

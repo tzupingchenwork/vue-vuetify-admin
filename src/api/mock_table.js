@@ -95,7 +95,4 @@ const desserts = [
 	}
 ];
 
-export {
-	headers,
-	desserts
-};
+export { headers, desserts };

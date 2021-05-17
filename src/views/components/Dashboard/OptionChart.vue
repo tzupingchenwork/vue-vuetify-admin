@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="className"
-    :style="{height: height,width: width}"
-  />
+	<div :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
@@ -37,12 +34,12 @@ export default {
 	watch: {
 		chartData: {
 			deep: true,
-			handler (val) {
+			handler(val) {
 				this.setOptions(val);
 			}
 		}
 	},
-	mounted () {
+	mounted() {
 		this.initChart();
 		this.resizeHandler = debounce(() => {
 			if (this.chart) {
@@ -51,7 +48,7 @@ export default {
 		}, 100);
 		window.addEventListener('resize', this.resizeHandler);
 	},
-	beforeDestroy () {
+	beforeDestroy() {
 		if (!this.chart) {
 			return;
 		}
@@ -60,10 +57,10 @@ export default {
 		this.chart = null;
 	},
 	methods: {
-		setOptions (option = {}) {
+		setOptions(option = {}) {
 			this.chart.setOption(option);
 		},
-		initChart () {
+		initChart() {
 			this.chart = echarts.init(this.$el, 'macarons');
 			this.setOptions(this.chartData);
 		}

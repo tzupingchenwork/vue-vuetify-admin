@@ -1,21 +1,9 @@
 <template>
-  <div class="chart-container">
-    <keyboard-chart
-      v-if="keyboard"
-      height="100%"
-      width="100%"
-    />
-    <line-chart
-      v-if="line"
-      height="100%"
-      width="100%"
-    />
-    <mix-chart
-      v-if="mix"
-      height="100%"
-      width="100%"
-    />
-  </div>
+	<div class="chart-container">
+		<keyboard-chart v-if="keyboard" height="100%" width="100%" />
+		<line-chart v-if="line" height="100%" width="100%" />
+		<mix-chart v-if="mix" height="100%" width="100%" />
+	</div>
 </template>
 
 <script>
@@ -35,9 +23,9 @@ export default {
 </script>
 
 <style scoped>
-.chart-container{
-  position: relative;
-  width: 100%;
-  height: 100%; /* calc(100vh - 84px); */
+.chart-container {
+	position: relative;
+	width: 100%;
+	height: 100%; /* calc(100vh - 84px); */
 }
 </style>

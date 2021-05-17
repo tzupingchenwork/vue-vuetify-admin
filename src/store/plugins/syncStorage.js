@@ -197,7 +197,7 @@ class SyncStorage {
 	}
 }
 
-export default function(syncStorageOption) {
+export default function (syncStorageOption) {
 	const syncStorage = new SyncStorage(syncStorageOption);
 	return syncStorage.subscribe;
 }

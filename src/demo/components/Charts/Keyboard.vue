@@ -1,9 +1,5 @@
 <template>
-  <div
-    :id="id"
-    :class="className"
-    :style="{height: height,width: width}"
-  />
+	<div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
@@ -34,10 +30,10 @@ export default {
 	data: () => ({
 		chart: null
 	}),
-	mounted () {
+	mounted() {
 		this.initChart();
 	},
-	beforeDestroy () {
+	beforeDestroy() {
 		if (!this.chart) {
 			return;
 		}
@@ -45,7 +41,7 @@ export default {
 		this.chart = null;
 	},
 	methods: {
-		initChart () {
+		initChart() {
 			this.chart = echarts.init(document.getElementById(this.id));
 
 			const xAxisData = [];
@@ -62,13 +58,16 @@ export default {
 					left: '5%',
 					right: '5%'
 				},
-				xAxis: [{
-					show: false,
-					data: xAxisData
-				}, {
-					show: false,
-					data: xAxisData
-				}],
+				xAxis: [
+					{
+						show: false,
+						data: xAxisData
+					},
+					{
+						show: false,
+						data: xAxisData
+					}
+				],
 				visualMap: {
 					show: false,
 					min: 0,
@@ -97,58 +96,62 @@ export default {
 						show: false
 					}
 				},
-				series: [{
-					name: 'back',
-					type: 'bar',
-					data: data2,
-					z: 1,
-					itemStyle: {
-						normal: {
-							opacity: 0.4,
-							barBorderRadius: 5,
-							shadowBlur: 3,
-							shadowColor: '#111'
-						}
-					}
-				}, {
-					name: 'Simulate Shadow',
-					type: 'line',
-					data,
-					z: 2,
-					showSymbol: false,
-					animationDelay: 0,
-					animationEasing: 'linear',
-					animationDuration: 1200,
-					lineStyle: {
-						normal: {
-							color: 'transparent'
+				series: [
+					{
+						name: 'back',
+						type: 'bar',
+						data: data2,
+						z: 1,
+						itemStyle: {
+							normal: {
+								opacity: 0.4,
+								barBorderRadius: 5,
+								shadowBlur: 3,
+								shadowColor: '#111'
+							}
 						}
 					},
-					areaStyle: {
-						normal: {
-							color: '#08263a',
-							shadowBlur: 50,
-							shadowColor: '#000'
+					{
+						name: 'Simulate Shadow',
+						type: 'line',
+						data,
+						z: 2,
+						showSymbol: false,
+						animationDelay: 0,
+						animationEasing: 'linear',
+						animationDuration: 1200,
+						lineStyle: {
+							normal: {
+								color: 'transparent'
+							}
+						},
+						areaStyle: {
+							normal: {
+								color: '#08263a',
+								shadowBlur: 50,
+								shadowColor: '#000'
+							}
+						}
+					},
+					{
+						name: 'front',
+						type: 'bar',
+						data,
+						xAxisIndex: 1,
+						z: 3,
+						itemStyle: {
+							normal: {
+								barBorderRadius: 5
+							}
 						}
 					}
-				}, {
-					name: 'front',
-					type: 'bar',
-					data,
-					xAxisIndex: 1,
-					z: 3,
-					itemStyle: {
-						normal: {
-							barBorderRadius: 5
-						}
-					}
-				}],
+				],
 				animationEasing: 'elasticOut',
 				animationEasingUpdate: 'elasticOut',
-				animationDelay (idx) {
+				animationDelay(idx) {
 					return idx * 20;
 				},
-				animationDelayUpdate (idx) {
+				animationDelayUpdate(idx) {
 					return idx * 20;
 				}
 			});

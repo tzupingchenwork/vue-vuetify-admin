@@ -1,22 +1,15 @@
 <template>
-  <app-center>
-    <template v-slot:page>
-      <p class="warn-content">
-        {{ $t('guide.description') }}
-        <a
-          href="https://github.com/kamranahmedse/driver.js"
-          target="_blank"
-        >driver.js.</a>
-      </p>
-      <v-btn
-        class="mx-2"
-        color="success"
-        @click.prevent.stop="guide"
-      >
-        {{ $t('guide.button') }}
-      </v-btn>
-    </template>
-  </app-center>
+	<app-center>
+		<template v-slot:page>
+			<p class="warn-content">
+				{{ $t('guide.description') }}
+				<a href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js.</a>
+			</p>
+			<v-btn class="mx-2" color="success" @click.prevent.stop="guide">
+				{{ $t('guide.button') }}
+			</v-btn>
+		</template>
+	</app-center>
 </template>
 
 <script>
@@ -33,11 +26,11 @@ export default {
 	data: () => ({
 		driver: null
 	}),
-	mounted () {
+	mounted() {
 		this.driver = new Driver();
 	},
 	methods: {
-		guide () {
+		guide() {
 			this.driver.defineSteps(steps);
 			this.driver.start();
 		}

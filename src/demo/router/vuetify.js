@@ -31,7 +31,6 @@ const vuetifyRouter = {
 			meta: { title: 'route.vuetifyComponents.avatar', icon: 'avatar', affix: true }
 		},
 		{
-
 			path: '/badge',
 			component: () => import('@/demo/views/Vuetify/Badge.vue'),
 			name: 'Badge',

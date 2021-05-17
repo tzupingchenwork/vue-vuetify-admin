@@ -1,8 +1,8 @@
 import debounce from '@/utils';
 
 export default {
-	data () {},
-	mounted () {
+	data() {},
+	mounted() {
 		this.resizeHandler = debounce(() => {
 			if (this.chart) {
 				this.chart.resize();
@@ -10,7 +10,7 @@ export default {
 		}, 100);
 		window.addEventListener('resize', this.resizeHandler);
 	},
-	beforeDestroy () {
+	beforeDestroy() {
 		window.removeEventListener('resize', this.resizeHandler);
 	}
 };

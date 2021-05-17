@@ -1,11 +1,9 @@
 <template>
-  <app-center>
-    <template v-slot:page>
-      <v-col class="text-h1">
-        Editor
-      </v-col>
-    </template>
-  </app-center>
+	<app-center>
+		<template v-slot:page>
+			<v-col class="text-h1"> Editor </v-col>
+		</template>
+	</app-center>
 </template>
 
 <script>
@@ -19,6 +17,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

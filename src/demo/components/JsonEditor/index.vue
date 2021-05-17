@@ -1,7 +1,7 @@
 <template>
-  <div class="json-editor">
-    <textarea ref="textarea" />
-  </div>
+	<div class="json-editor">
+		<textarea ref="textarea" />
+	</div>
 </template>
 
 <script>
@@ -23,20 +23,20 @@ export default {
 			default: () => ({})
 		}
 	},
-	data () {
+	data() {
 		return {
 			jsonEditor: false
 		};
 	},
 	watch: {
-		value (value) {
+		value(value) {
 			const editorValue = this.jsonEditor.getValue();
 			if (value !== editorValue) {
 				this.jsonEditor.setValue(JSON.stringify(this.value, null, 2));
 			}
 		}
 	},
-	mounted () {
+	mounted() {
 		this.jsonEditor = CodeMirror.fromTextArea(this.$refs.textarea, {
 			lineNumbers: true,
 			mode: 'application/json',
@@ -52,7 +52,7 @@ export default {
 		});
 	},
 	methods: {
-		getValue () {
+		getValue() {
 			return this.jsonEditor.getValue();
 		}
 	}
@@ -60,18 +60,18 @@ export default {
 </script>
 
 <style scoped>
-.json-editor{
-  height: 100%;
-  position: relative;
+.json-editor {
+	height: 100%;
+	position: relative;
 }
 .json-editor >>> .CodeMirror {
-  height: auto;
-  min-height: 300px;
+	height: auto;
+	min-height: 300px;
 }
-.json-editor >>> .CodeMirror-scroll{
-  min-height: 300px;
+.json-editor >>> .CodeMirror-scroll {
+	min-height: 300px;
 }
 .json-editor >>> .cm-s-rubyblue span.cm-string {
-  color: #F08047;
+	color: #f08047;
 }
 </style>

@@ -9,9 +9,9 @@ NProgress.configure({ showSpinner: false }); // NProgress Configuration
 /**
  * Generate white list
  */
-const whiteList = (['/landing', '/land']
+const whiteList = ['/landing', '/land']
 	.concat(Array.from(authRouter, (route) => route.path))
-	.concat(Array.from(authRouter, (route) => route.alias)))
+	.concat(Array.from(authRouter, (route) => route.alias))
 	.filter((route) => route); // remove undefined element
 console.log('[router.whiteList]', whiteList);
 
@@ -21,7 +21,7 @@ console.log('[router.whiteList]', whiteList);
  * @param {Array} roles
  * @param {Array} permissionRoles
  */
-function hasPermission (roles, permissionRoles) {
+function hasPermission(roles, permissionRoles) {
 	if (roles.includes('admin')) return true;
 	if (!permissionRoles) return true;
 	return roles.some((role) => permissionRoles.includes(role));

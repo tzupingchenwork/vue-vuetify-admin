@@ -1,93 +1,69 @@
 <template>
-  <v-content class="layout-fab">
-    <v-btn
-      v-if="settingsPanelBtn"
-      small
-      fab
-      falt
-      fixed
-      top="top"
-      right="right"
-      color="error"
-      class="layout-fab__btn"
-      @click="toggleSettingsPanel"
-    >
-      <v-icon>mdi-settings</v-icon>
-    </v-btn>
-    <v-navigation-drawer
-      right
-      disable-resize-watcher
-      temporary
-      fixed
-      app
-      :value="settingsPanelShow"
-      @input="stateSettingsPanel"
-    >
-      <v-app-bar
-        :dense="toolbarDense"
-        color="secondary"
-        dark
-      >
-        <v-toolbar-title>
-          {{ $t('settings.title') }}
-        </v-toolbar-title>
-        <v-tooltip left>
-          <template v-slot:activator="{on}">
-            <v-btn
-              absolute
-              dark
-              fab
-              bottom
-              right
-              small
-              color="error"
-              v-on="on"
-              @click.stop="setDefaultSettingsPanel"
-            >
-              <v-icon>mdi-refresh</v-icon>
-            </v-btn>
-          </template>
-          <span>{{ $t('settings.default') }}</span>
-        </v-tooltip>
-      </v-app-bar>
+	<v-content class="layout-fab">
+		<v-btn
+			v-if="settingsPanelBtn"
+			small
+			fab
+			falt
+			fixed
+			top="top"
+			right="right"
+			color="error"
+			class="layout-fab__btn"
+			@click="toggleSettingsPanel"
+		>
+			<v-icon>mdi-settings</v-icon>
+		</v-btn>
+		<v-navigation-drawer right disable-resize-watcher temporary fixed app :value="settingsPanelShow" @input="stateSettingsPanel">
+			<v-app-bar :dense="toolbarDense" color="secondary" dark>
+				<v-toolbar-title>
+					{{ $t('settings.title') }}
+				</v-toolbar-title>
+				<v-tooltip left>
+					<template v-slot:activator="{ on }">
+						<v-btn absolute dark fab bottom right small color="error" v-on="on" @click.stop="setDefaultSettingsPanel">
+							<v-icon>mdi-refresh</v-icon>
+						</v-btn>
+					</template>
+					<span>{{ $t('settings.default') }}</span>
+				</v-tooltip>
+			</v-app-bar>
 
-      <v-subheader class="layout-fab__header">
-        {{ $t('settings.version') }}: {{ version }}
-      </v-subheader>
-      <v-divider />
+			<v-subheader class="layout-fab__header"> {{ $t('settings.version') }}: {{ version }} </v-subheader>
+			<v-divider />
 
-      <v-expansion-panels accordion>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="layout-fab__header">
-            {{ $t('settings.position') }}
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-switch
-              v-for="(toggle, i) in switches"
-              :key="i"
-              dense
-              hide-details
-              color="secondary"
-              class="layout-fab__switch"
-              :disabled="toggle.value === null"
-              :input-value="toggle.value"
-              :label="toggle.label"
-              @change="toggle.change"
-            />
-          </v-expansion-panel-content>
-        </v-expansion-panel>
+			<v-expansion-panels accordion>
+				<v-expansion-panel>
+					<v-expansion-panel-header class="layout-fab__header">
+						{{ $t('settings.position') }}
+					</v-expansion-panel-header>
+					<v-expansion-panel-content>
+						<v-switch
+							v-for="(toggle, i) in switches"
+							:key="i"
+							dense
+							hide-details
+							color="secondary"
+							class="layout-fab__switch"
+							:disabled="toggle.value === null"
+							:input-value="toggle.value"
+							:label="toggle.label"
+							@change="toggle.change"
+						/>
+					</v-expansion-panel-content>
+				</v-expansion-panel>
 
-        <v-expansion-panel>
-          <v-expansion-panel-header class="layout-fab__header">
-            {{ $t('settings.theme') }}
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <app-theme cols="6" />
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
-    </v-navigation-drawer>
-  </v-content>
+				<v-expansion-panel>
+					<v-expansion-panel-header class="layout-fab__header">
+						{{ $t('settings.theme') }}
+					</v-expansion-panel-header>
+					<v-expansion-panel-content>
+						<app-theme cols="6" />
+					</v-expansion-panel-content>
+				</v-expansion-panel>
+			</v-expansion-panels>
+		</v-navigation-drawer>
+	</v-content>
 </template>
 
 <script>
@@ -109,7 +85,7 @@ export default {
 			'navbarLogo',
 			'footerShow'
 		]),
-		switches () {
+		switches() {
 			return [
 				{
 					value: this.toolbarDense,
@@ -145,32 +121,32 @@ export default {
 		}
 	},
 	methods: {
-		stateSettingsPanel (state) {
+		stateSettingsPanel(state) {
 			this.$store.dispatch('SettingsPanelState', { state });
 		},
-		toggleSettingsPanel () {
+		toggleSettingsPanel() {
 			this.$vuetify.goTo(0);
 			this.$store.dispatch('SettingsPanelToggle');
 		},
-		toogleThemeDark () {
+		toogleThemeDark() {
 			this.$store.dispatch('ThemeDarkToggle');
 		},
-		toggleToolbarDense () {
+		toggleToolbarDense() {
 			this.$store.dispatch('ToolbarDenseToggle');
 		},
-		toggleNavbarDense () {
+		toggleNavbarDense() {
 			this.$store.dispatch('NavbarDenseToggle');
 		},
-		toggleNavbarLogo () {
+		toggleNavbarLogo() {
 			this.$store.dispatch('NavbarLogoToggle');
 		},
-		toggleSettingsPanelBtn () {
+		toggleSettingsPanelBtn() {
 			this.$store.dispatch('SettingsPanelBtnToggle');
 		},
-		toggleFooterToggle () {
+		toggleFooterToggle() {
 			this.$store.dispatch('FooterToggle');
 		},
-		setDefaultSettingsPanel () {
+		setDefaultSettingsPanel() {
 			this.$store.dispatch('SettingsPanelDefault');
 		}
 	}
@@ -178,22 +154,22 @@ export default {
 </script>
 
 <style>
-  .layout-fab {
-    position: absolute;
-  }
-  .layout-fab__btn {
-    margin-top: 4px; /* fixme: vertical align */
-    top: 50% !important;
-    right: 0 !important;
-    border-radius: 0 !important;
-  }
-  .layout-fab__switch {
-    margin-top: 4px;
-  }
-  .layout-fab__header {
-    padding: 0 12px 0 12px !important;
-  }
-  .v-expansion-panel-content__wrap {
-    padding:0 12px 12px;
-  }
+.layout-fab {
+	position: absolute;
+}
+.layout-fab__btn {
+	margin-top: 4px; /* fixme: vertical align */
+	top: 50% !important;
+	right: 0 !important;
+	border-radius: 0 !important;
+}
+.layout-fab__switch {
+	margin-top: 4px;
+}
+.layout-fab__header {
+	padding: 0 12px 0 12px !important;
+}
+.v-expansion-panel-content__wrap {
+	padding: 0 12px 12px;
+}
 </style>

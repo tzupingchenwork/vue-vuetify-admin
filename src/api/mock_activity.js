@@ -33,7 +33,7 @@ const Items = [
 
 const getActivity = (limit) => {
 	console.log();
-	return (limit) ? Items.slice(0, limit) : Items;
+	return limit ? Items.slice(0, limit) : Items;
 };
 
 export default {

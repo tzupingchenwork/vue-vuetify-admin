@@ -1,11 +1,7 @@
 <template>
-  <v-btn
-    color="error"
-    disabled
-    icon
-  >
-    <v-icon>mdi-bug</v-icon>
-  </v-btn>
+	<v-btn color="error" disabled icon>
+		<v-icon>mdi-bug</v-icon>
+	</v-btn>
 </template>
 
 <script>
@@ -16,7 +12,6 @@ export default {
 	computed: {
 		...mapGetters([])
 	},
-	methods: {
-	}
+	methods: {}
 };
 </script>

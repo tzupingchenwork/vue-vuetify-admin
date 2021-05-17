@@ -1,67 +1,39 @@
 <template>
-  <div class="upload-container">
-    <v-dialog
-      v-model="dialogVisible"
-      persistent
-      max-width="600px"
-    >
-      <template v-slot:activator="{on}">
-        <v-btn
-          class="info"
-          :style="{background: color,borderColor: color}"
-          @click="dialogVisible === rue"
-          v-on="on"
-        >
-          upload
-          <v-icon
-            right
-            dark
-          >
-            cloud_upload
-          </v-icon>
-        </v-btn>
-      </template>
-      <v-card>
-        <v-responsive :aspect-ratio="16 / 9">
-          <v-card-text>
-            <v-btn color="primary">
-              Click upload
-            </v-btn>
-          </v-card-text>
-        </v-responsive>
-        <!--<el-upload-->
-        <!--:multiple="true"-->
-        <!--:file-list="fileList"-->
-        <!--:show-file-list="true"-->
-        <!--:on-remove="handleRemove"-->
-        <!--:on-success="handleSuccess"-->
-        <!--:before-upload="beforeUpload"-->
-        <!--class="editor-slide-upload"-->
-        <!--action="https://httpbin.org/post"-->
-        <!--list-type="picture-card"-->
-        <!--&gt;-->
-        <!--<v-btn color="primary">Click upload</v-btn>-->
-        <!--</el-upload>-->
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="error"
-            flat
-            @click="dialogVisible = false"
-          >
-            Cancel
-          </v-btn>
-          <v-btn
-            color="success"
-            flat
-            @click="handleSubmit"
-          >
-            Confirm
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </div>
+	<div class="upload-container">
+		<v-dialog v-model="dialogVisible" persistent max-width="600px">
+			<template v-slot:activator="{ on }">
+				<v-btn class="info" :style="{ background: color, borderColor: color }" @click="dialogVisible === rue" v-on="on">
+					upload
+					<v-icon right dark> cloud_upload </v-icon>
+				</v-btn>
+			</template>
+			<v-card>
+				<v-responsive :aspect-ratio="16 / 9">
+					<v-card-text>
+						<v-btn color="primary"> Click upload </v-btn>
+					</v-card-text>
+				</v-responsive>
+				<!--<el-upload-->
+				<!--:multiple="true"-->
+				<!--:file-list="fileList"-->
+				<!--:show-file-list="true"-->
+				<!--:on-remove="handleRemove"-->
+				<!--:on-success="handleSuccess"-->
+				<!--:before-upload="beforeUpload"-->
+				<!--class="editor-slide-upload"-->
+				<!--action="https://httpbin.org/post"-->
+				<!--list-type="picture-card"-->
+				<!--&gt;-->
+				<!--<v-btn color="primary">Click upload</v-btn>-->
+				<!--</el-upload>-->
+				<v-card-actions>
+					<v-spacer />
+					<v-btn color="error" flat @click="dialogVisible = false"> Cancel </v-btn>
+					<v-btn color="success" flat @click="handleSubmit"> Confirm </v-btn>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
+	</div>
 </template>
 
 <script>
@@ -73,7 +45,7 @@ export default {
 			default: '#1890ff'
 		}
 	},
-	data () {
+	data() {
 		return {
 			dialogVisible: false,
 			listObj: {},
@@ -81,14 +53,16 @@ export default {
 		};
 	},
 	methods: {
-		checkAllSuccess () {
+		checkAllSuccess() {
 			return Object.keys(this.listObj).every((item) => this.listObj[item].hasSuccess);
 		},
-		handleSubmit () {
+		handleSubmit() {
 			const arr = Object.keys(this.listObj).map((v) => this.listObj[v]);
 			if (!this.checkAllSuccess()) {
-				this.$message('Please wait for all images to be uploaded successfully. ' +
-          'If there is a network problem, please refresh the page and upload again!');
+				this.$message(
+					'Please wait for all images to be uploaded successfully. ' +
+						'If there is a network problem, please refresh the page and upload again!'
+				);
 				return;
 			}
 			this.$emit('successCBK', arr);
@@ -96,7 +70,7 @@ export default {
 			this.fileList = [];
 			this.dialogVisible = false;
 		},
-		handleSuccess (response, file) {
+		handleSuccess(response, file) {
 			const { uid } = file;
 			const objKeyArr = Object.keys(this.listObj);
 			for (let i = 0, len = objKeyArr.length; i < len; i++) {
@@ -107,7 +81,7 @@ export default {
 				}
 			}
 		},
-		handleRemove (file) {
+		handleRemove(file) {
 			const { uid } = file;
 			const objKeyArr = Object.keys(this.listObj);
 			for (let i = 0, len = objKeyArr.length; i < len; i++) {
@@ -117,7 +91,7 @@ export default {
 				}
 			}
 		},
-		beforeUpload (file) {
+		beforeUpload(file) {
 			const self = this;
 			const URL = window.URL || window.webkitURL;
 			const fileName = file.uid;
@@ -142,9 +116,9 @@ export default {
 
 <style lang="scss" scoped>
 .editor-slide-upload {
-  margin-bottom: 20px;
-  /deep/ .el-upload--picture-card {
-    width: 100%;
-  }
+	margin-bottom: 20px;
+	/deep/ .el-upload--picture-card {
+		width: 100%;
+	}
 }
 </style>

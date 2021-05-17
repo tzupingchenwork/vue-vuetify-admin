@@ -1,39 +1,24 @@
 <template>
-  <v-col
-    cols="12"
-    sm="6"
-    md="3"
-  >
-    <v-card
-      class="mx-auto"
-      @click.stop="handleSetLineChartData(`${chart}`)"
-    >
-      <v-list-item three-line>
-        <v-list-item-avatar size="80">
-          <v-icon
-            size="64"
-            :color="color"
-          >
-            {{ icon }}
-          </v-icon>
-        </v-list-item-avatar>
+	<v-col cols="12" sm="6" md="3">
+		<v-card class="mx-auto" @click.stop="handleSetLineChartData(`${chart}`)">
+			<v-list-item three-line>
+				<v-list-item-avatar size="80">
+					<v-icon size="64" :color="color">
+						{{ icon }}
+					</v-icon>
+				</v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title class="text-h6 font-weight-light">
-            {{ title }}
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            <count-to
-              :start-val="start"
-              :end-val="end"
-              :duration="duration"
-              class="text-h6 font-weight-bold"
-            />
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-card>
-  </v-col>
+				<v-list-item-content>
+					<v-list-item-title class="text-h6 font-weight-light">
+						{{ title }}
+					</v-list-item-title>
+					<v-list-item-subtitle>
+						<count-to :start-val="start" :end-val="end" :duration="duration" class="text-h6 font-weight-bold" />
+					</v-list-item-subtitle>
+				</v-list-item-content>
+			</v-list-item>
+		</v-card>
+	</v-col>
 </template>
 
 <script>
@@ -75,7 +60,7 @@ export default {
 		}
 	},
 	methods: {
-		handleSetLineChartData (type) {
+		handleSetLineChartData(type) {
 			this.$parent.$emit('handleSetLineChartData', type);
 		}
 	}

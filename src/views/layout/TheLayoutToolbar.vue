@@ -1,19 +1,16 @@
 <template>
-  <v-app-bar
-    app
-    :dense="toolbarDense"
-  >
-    <v-app-bar-nav-icon @click.stop="toggleNavbar">
-      <v-icon>{{ toggleNavbarIcon }}</v-icon>
-    </v-app-bar-nav-icon>
-    <breadcrumbs />
-    <v-spacer />
-    <error-log />
-    <full-screen />
-    <notification />
-    <localization />
-    <profile />
-  </v-app-bar>
+	<v-app-bar app :dense="toolbarDense">
+		<v-app-bar-nav-icon @click.stop="toggleNavbar">
+			<v-icon>{{ toggleNavbarIcon }}</v-icon>
+		</v-app-bar-nav-icon>
+		<breadcrumbs />
+		<v-spacer />
+		<error-log />
+		<full-screen />
+		<notification />
+		<localization />
+		<profile />
+	</v-app-bar>
 </template>
 
 <script>
@@ -37,16 +34,13 @@ export default {
 	},
 	data: () => ({}),
 	computed: {
-		...mapGetters([
-			'toolbarDense',
-			'navbarShow'
-		]),
-		toggleNavbarIcon () {
+		...mapGetters(['toolbarDense', 'navbarShow']),
+		toggleNavbarIcon() {
 			return this.navbarShow ? 'mdi-format-indent-decrease' : 'mdi-format-indent-increase';
 		}
 	},
 	methods: {
-		toggleNavbar () {
+		toggleNavbar() {
 			this.$store.dispatch('NavbarToggle');
 		}
 	}

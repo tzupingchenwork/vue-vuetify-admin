@@ -35,8 +35,7 @@ const steps = [
 		icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
 		date: '01.2020',
 		title: 'Add Roadmap',
-		description: 'Now we can plan further development of the application. ' +
-      'And also track the appearance of new functionality'
+		description: 'Now we can plan further development of the application. ' + 'And also track the appearance of new functionality'
 	},
 	{
 		icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
@@ -48,9 +47,10 @@ const steps = [
 		icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
 		date: '2019',
 		title: 'Application wireframe',
-		description: 'During this period, the main functionality was created. ' +
-      'Available components and sections are added.' +
-      'The basis of the project was taken Vuetifi 1.5'
+		description:
+			'During this period, the main functionality was created. ' +
+			'Available components and sections are added.' +
+			'The basis of the project was taken Vuetifi 1.5'
 	},
 	{
 		icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',

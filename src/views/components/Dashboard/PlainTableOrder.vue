@@ -1,40 +1,27 @@
 <template>
-  <v-card>
-    <v-card-text class="pa-0">
-      <template>
-        <v-data-table
-          :headers="headers"
-          :items="items"
-          hide-default-footer
-          class="elevation-0 table-striped"
-        >
-          <template
-            slot="items"
-            slot-scope="props"
-          >
-            <td>{{ props.item.id }}</td>
-            <td class="text-left">
-              {{ props.item.product }}
-            </td>
-            <td class="text-left">
-              {{ props.item.price }}
-            </td>
-            <td class="text-left">
-              <v-chip
-                label
-                small
-                :color="getColorByStatus(props.item.status)"
-                text-color="white"
-              >
-                {{ props.item.status }}
-              </v-chip>
-            </td>
-          </template>
-        </v-data-table>
-      </template>
-      <v-divider />
-    </v-card-text>
-  </v-card>
+	<v-card>
+		<v-card-text class="pa-0">
+			<template>
+				<v-data-table :headers="headers" :items="items" hide-default-footer class="elevation-0 table-striped">
+					<template slot="items" slot-scope="props">
+						<td>{{ props.item.id }}</td>
+						<td class="text-left">
+							{{ props.item.product }}
+						</td>
+						<td class="text-left">
+							{{ props.item.price }}
+						</td>
+						<td class="text-left">
+							<v-chip label small :color="getColorByStatus(props.item.status)" text-color="white">
+								{{ props.item.status }}
+							</v-chip>
+						</td>
+					</template>
+				</v-data-table>
+			</template>
+			<v-divider />
+		</v-card-text>
+	</v-card>
 </template>
 
 <script>
@@ -44,7 +31,10 @@ export default {
 	data: () => ({
 		headers: [
 			{
-				text: '#', align: 'left', sortable: false, value: 'id'
+				text: '#',
+				align: 'left',
+				sortable: false,
+				value: 'id'
 			},
 			{ text: 'Product', value: 'deadline' },
 			{ text: 'Price', value: 'progress' },
@@ -58,7 +48,7 @@ export default {
 		}
 	}),
 	methods: {
-		getColorByStatus (status) {
+		getColorByStatus(status) {
 			return this.colors[status];
 		}
 	}

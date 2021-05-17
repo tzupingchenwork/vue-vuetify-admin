@@ -17,7 +17,7 @@ export const lineChartData = {
 	}
 };
 
-export function getLineChartOption ({ expectedData, actualData } = {}) {
+export function getLineChartOption({ expectedData, actualData } = {}) {
 	return {
 		xAxis: {
 			data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -48,51 +48,54 @@ export function getLineChartOption ({ expectedData, actualData } = {}) {
 		legend: {
 			data: ['expected', 'actual']
 		},
-		series: [{
-			name: 'expected',
-			itemStyle: {
-				normal: {
-					color: '#FF005A',
-					lineStyle: {
+		series: [
+			{
+				name: 'expected',
+				itemStyle: {
+					normal: {
 						color: '#FF005A',
-						width: 2
+						lineStyle: {
+							color: '#FF005A',
+							width: 2
+						}
 					}
-				}
+				},
+				smooth: true,
+				type: 'line',
+				data: expectedData,
+				animationDuration: 2800,
+				animationEasing: 'cubicInOut'
 			},
-			smooth: true,
-			type: 'line',
-			data: expectedData,
-			animationDuration: 2800,
-			animationEasing: 'cubicInOut'
-		},
-		{
-			name: 'actual',
-			smooth: true,
-			type: 'line',
-			itemStyle: {
-				normal: {
-					color: '#3888fa',
-					lineStyle: {
+			{
+				name: 'actual',
+				smooth: true,
+				type: 'line',
+				itemStyle: {
+					normal: {
 						color: '#3888fa',
-						width: 2
-					},
-					areaStyle: {
-						color: '#f3f8ff'
+						lineStyle: {
+							color: '#3888fa',
+							width: 2
+						},
+						areaStyle: {
+							color: '#f3f8ff'
+						}
 					}
-				}
-			},
-			data: actualData,
-			animationDuration: 2800,
-			animationEasing: 'quadraticOut'
-		}]
+				},
+				data: actualData,
+				animationDuration: 2800,
+				animationEasing: 'quadraticOut'
+			}
+		]
 	};
 }
 
-export function getRaddarChartOption ({ animationDuration } = {}) {
+export function getRaddarChartOption({ animationDuration } = {}) {
 	return {
 		tooltip: {
 			trigger: 'axis',
-			axisPointer: { // 坐标轴指示器，坐标轴触发有效
+			axisPointer: {
+				// 坐标轴指示器，坐标轴触发有效
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
 		},
@@ -124,38 +127,40 @@ export function getRaddarChartOption ({ animationDuration } = {}) {
 			bottom: '10',
 			data: ['Allocated Budget', 'Expected Spending', 'Actual Spending']
 		},
-		series: [{
-			type: 'radar',
-			symbolSize: 0,
-			areaStyle: {
-				normal: {
-					shadowBlur: 13,
-					shadowColor: 'rgba(0,0,0,.2)',
-					shadowOffsetX: 0,
-					shadowOffsetY: 10,
-					opacity: 1
-				}
-			},
-			data: [
-				{
-					value: [5000, 7000, 12000, 11000, 15000, 14000],
-					name: 'Allocated Budget'
+		series: [
+			{
+				type: 'radar',
+				symbolSize: 0,
+				areaStyle: {
+					normal: {
+						shadowBlur: 13,
+						shadowColor: 'rgba(0,0,0,.2)',
+						shadowOffsetX: 0,
+						shadowOffsetY: 10,
+						opacity: 1
+					}
 				},
-				{
-					value: [4000, 9000, 15000, 15000, 13000, 11000],
-					name: 'Expected Spending'
-				},
-				{
-					value: [5500, 11000, 12000, 15000, 12000, 12000],
-					name: 'Actual Spending'
-				}
-			],
-			animationDuration
-		}]
+				data: [
+					{
+						value: [5000, 7000, 12000, 11000, 15000, 14000],
+						name: 'Allocated Budget'
+					},
+					{
+						value: [4000, 9000, 15000, 15000, 13000, 11000],
+						name: 'Expected Spending'
+					},
+					{
+						value: [5500, 11000, 12000, 15000, 12000, 12000],
+						name: 'Actual Spending'
+					}
+				],
+				animationDuration
+			}
+		]
 	};
 }
 
-export function getPieChartOption () {
+export function getPieChartOption() {
 	return {
 		tooltip: {
 			trigger: 'item',
@@ -188,11 +193,12 @@ export function getPieChartOption () {
 	};
 }
 
-export function getBarChartOption ({ animationDuration } = {}) {
+export function getBarChartOption({ animationDuration } = {}) {
 	return {
 		tooltip: {
 			trigger: 'axis',
-			axisPointer: { // 坐标轴指示器，坐标轴触发有效
+			axisPointer: {
+				// 坐标轴指示器，坐标轴触发有效
 				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
 			}
 		},
@@ -203,40 +209,48 @@ export function getBarChartOption ({ animationDuration } = {}) {
 			bottom: '3%',
 			containLabel: true
 		},
-		xAxis: [{
-			type: 'category',
-			data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			axisTick: {
-				alignWithLabel: true
+		xAxis: [
+			{
+				type: 'category',
+				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				axisTick: {
+					alignWithLabel: true
+				}
 			}
-		}],
-		yAxis: [{
-			type: 'value',
-			axisTick: {
-				show: false
+		],
+		yAxis: [
+			{
+				type: 'value',
+				axisTick: {
+					show: false
+				}
 			}
-		}],
-		series: [{
-			name: 'pageA',
-			type: 'bar',
-			stack: 'vistors',
-			barWidth: '60%',
-			data: [79, 52, 200, 334, 390, 330, 220],
-			animationDuration
-		}, {
-			name: 'pageB',
-			type: 'bar',
-			stack: 'vistors',
-			barWidth: '60%',
-			data: [80, 52, 200, 334, 390, 330, 220],
-			animationDuration
-		}, {
-			name: 'pageC',
-			type: 'bar',
-			stack: 'vistors',
-			barWidth: '60%',
-			data: [30, 52, 200, 334, 390, 330, 220],
-			animationDuration
-		}]
+		],
+		series: [
+			{
+				name: 'pageA',
+				type: 'bar',
+				stack: 'vistors',
+				barWidth: '60%',
+				data: [79, 52, 200, 334, 390, 330, 220],
+				animationDuration
+			},
+			{
+				name: 'pageB',
+				type: 'bar',
+				stack: 'vistors',
+				barWidth: '60%',
+				data: [80, 52, 200, 334, 390, 330, 220],
+				animationDuration
+			},
+			{
+				name: 'pageC',
+				type: 'bar',
+				stack: 'vistors',
+				barWidth: '60%',
+				data: [30, 52, 200, 334, 390, 330, 220],
+				animationDuration
+			}
+		]
 	};
 }
