@@ -57,7 +57,7 @@ const user = {
 				console.log('[vuex.user] LoginByEmail', payload, response);
 				await commit('SET_TOKEN', response.user.token);
 				await commit('SET_USER_INFO', response.user);
-				await dispatch('GenerateRoutes', response.user);
+				await dispatch('permission/GenerateRoutes', response.user);
 			} catch (err) {
 				console.warn('[vuex.user] LoginByEmail', err);
 			}

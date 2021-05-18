@@ -4,6 +4,8 @@ import store from '../store';
 import authRouter from './modules/auth';
 import 'nprogress/nprogress.css'; // progress bar style
 
+console.log('store', store);
+
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 /**
@@ -51,7 +53,7 @@ router.beforeEach(async (to, from, next) => {
 
 					// note: roles must be a object array! such as:
 					// [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
-					await store.dispatch('GenerateRoutes', store.getters.user);
+					await store.dispatch('permission/GenerateRoutes', store.getters.user);
 					if (!store.getters.permissionRoutes) {
 						logMsg += '\t[Redirect]\t[next /]';
 						next({ path: '/' });

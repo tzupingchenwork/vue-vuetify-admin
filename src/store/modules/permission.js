@@ -33,6 +33,7 @@ export const filterAsyncRoutes = (roles, routes) => {
 };
 
 const permission = {
+	namespaced: true,
 	state: {
 		routes: [],
 		addRoutes: []

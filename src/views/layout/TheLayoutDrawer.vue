@@ -23,7 +23,9 @@ export default {
 	},
 	data: () => ({}),
 	computed: {
-		...mapGetters(['permissionRoutes', 'navbarDense', 'navbarShow', 'navbarLogo', 'toolbarDense'])
+		// ...mapGetters(['permission/permissionRoutes', 'navbarDense', 'navbarShow', 'navbarLogo', 'toolbarDense'])
+		...mapGetters('permission', ['permissionRoutes']),
+		...mapGetters(['navbarDense', 'navbarShow', 'navbarLogo', 'toolbarDense'])
 	},
 	methods: {
 		stateNavbarShow(state) {

@@ -39,7 +39,7 @@ class SyncStorage {
 
 		// init and apply user state from storage
 		if (this.initUserState(store)) {
-			await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
+			await store.dispatch('permission/GenerateRoutes', { roles: store.getters.roles });
 			console.log('[vuex.SyncStorage] initUserState');
 		} else {
 			console.warn('[vuex.SyncStorage] No user state in "Storage"');

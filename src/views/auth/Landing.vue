@@ -3,7 +3,7 @@
 		<v-app-bar class="white">
 			<v-toolbar-title>{{ info.title }}</v-toolbar-title>
 		</v-app-bar>
-		<v-content>
+		<v-main>
 			<section>
 				<v-parallax src="img/land/hero.jpeg" height="600">
 					<v-row align="center" justify="center" class="white--text flex-column">
@@ -150,7 +150,7 @@
 					</v-col>
 				</v-row>
 			</v-footer>
-		</v-content>
+		</v-main>
 	</div>
 </template>
 

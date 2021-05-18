@@ -78,8 +78,8 @@ export default {
 	data: () => ({
 		loading: false,
 		model: {
-			email: userAdmin.email,
-			password: userAdmin.password
+			email: '',
+			password: ''
 		}
 	}),
 	methods: {
