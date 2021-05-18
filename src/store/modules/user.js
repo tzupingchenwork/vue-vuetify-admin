@@ -1,6 +1,7 @@
 // import { loginByEmail, getUserInfo } from '@/api/login';
 import { login, getUser } from '@/api/user';
 import { setToken, removeToken, getToken } from '@/utils/auth';
+import { resetRouter } from '@/router';
 
 const user = {
 	state: {
@@ -138,6 +139,7 @@ const user = {
 				console.log('[vuex.user] LogOut');
 				await commit('SET_USER_INFO', { logout: true });
 				removeToken();
+				resetRouter();
 			} catch (err) {
 				console.warn('[vuex.user] LogOut', err);
 			}
