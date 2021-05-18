@@ -136,11 +136,11 @@ export const constantRoutes = [
 	...authRouter
 ];
 
-export default new Router({
-	// mode: 'history', // gh-pages
-	scrollBehavior: () => ({ y: 0 }),
-	routes: constantRoutes
-});
+// export default new Router({
+// 	// mode: 'history', // gh-pages
+// 	scrollBehavior: () => ({ y: 0 }),
+// 	routes: constantRoutes
+// });
 
 export const asyncRoutes = [
 	/** When your routing table is too long, you can split it into small modules */
@@ -151,3 +151,20 @@ export const asyncRoutes = [
 	// errorsRouter,
 	{ path: '*', redirect: '/error/404', hidden: true }
 ];
+
+const createRouter = () =>
+	new Router({
+		// mode: 'history', // require service support
+		scrollBehavior: () => ({ y: 0 }),
+		routes: constantRoutes
+	});
+
+const router = createRouter();
+
+// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
+export function resetRouter() {
+	const newRouter = createRouter();
+	router.matcher = newRouter.matcher; // reset router
+}
+
+export default router;

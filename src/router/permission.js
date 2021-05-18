@@ -24,7 +24,7 @@ console.log('[router.whiteList]', whiteList);
  * @param {Array} permissionRoles
  */
 function hasPermission(roles, permissionRoles) {
-	if (roles.includes('admin')) return true;
+	if (roles.includes('ADMIN')) return true;
 	if (!permissionRoles) return true;
 	return roles.some((role) => permissionRoles.includes(role));
 }
@@ -53,7 +53,7 @@ router.beforeEach(async (to, from, next) => {
 
 					// note: roles must be a object array! such as:
 					// [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
-					await store.dispatch('permission/GenerateRoutes', store.getters.user);
+					await store.dispatch('permission/GenerateRoutes', store.getters.roles);
 					if (!store.getters.permissionRoutes) {
 						logMsg += '\t[Redirect]\t[next /]';
 						next({ path: '/' });

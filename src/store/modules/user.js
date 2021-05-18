@@ -1,18 +1,20 @@
-import { loginByEmail, getUserInfo } from '@/api/login';
+// import { loginByEmail, getUserInfo } from '@/api/login';
+import { login, getUser } from '@/api/user';
+import { setToken, removeToken, getToken } from '@/utils/auth';
 
 const user = {
 	state: {
-		token: '',
+		token: getToken(),
 		roles: [],
 		user: '',
-		name: '',
-		avatar: '',
-		status: '',
-		code: '',
-		introduction: '',
-		setting: {
-			articlePlatform: []
-		}
+		name: ''
+		// avatar: '',
+		// status: '',
+		// code: '',
+		// introduction: '',
+		// setting: {
+		// 	articlePlatform: []
+		// }
 	},
 
 	getters: {
@@ -27,21 +29,38 @@ const user = {
 	},
 
 	mutations: {
+		// SET_USER_INFO: (state, payload) => {
+		// 	if (payload.logout) {
+		// 		state.token = '';
+		// 		state.roles = [];
+		// 		state.user = '';
+		// 		state.name = '';
+		// 		state.avatar = '';
+		// 		state.code = '';
+		// 	} else {
+		// 		state.token = payload.token || state.token;
+		// 		state.roles = payload.roles || state.roles;
+		// 		state.user = payload.user || state.user;
+		// 		state.name = payload.name || state.name;
+		// 		state.avatar = payload.avatar || state.avatar;
+		// 		state.code = payload.code || state.code;
+		// 	}
+		// },
 		SET_USER_INFO: (state, payload) => {
 			if (payload.logout) {
 				state.token = '';
 				state.roles = [];
 				state.user = '';
 				state.name = '';
-				state.avatar = '';
-				state.code = '';
+				// state.avatar = '';
+				// state.code = '';
 			} else {
 				state.token = payload.token || state.token;
-				state.roles = payload.roles || state.roles;
-				state.user = payload.user || state.user;
+				state.roles = payload.roleNames || state.roles;
+				state.user = payload || state.user;
 				state.name = payload.name || state.name;
-				state.avatar = payload.avatar || state.avatar;
-				state.code = payload.code || state.code;
+				// state.avatar = payload.avatar || state.avatar;
+				// state.code = payload.code || state.code;
 			}
 		},
 		SET_TOKEN: (state, token) => {
@@ -51,43 +70,74 @@ const user = {
 
 	actions: {
 		// Login user
-		LoginByEmail: async ({ commit, dispatch }, payload) => {
+		// LoginByEmail: async ({ commit, dispatch }, payload) => {
+		// 	try {
+		// 		const response = await loginByEmail(payload.email.trim(), payload.password);
+		// 		console.log('[vuex.user] LoginByEmail', payload, response);
+		// 		await commit('SET_TOKEN', response.user.token);
+		// 		await commit('SET_USER_INFO', response.user);
+		// 		await dispatch('permission/GenerateRoutes', response.user);
+		// 	} catch (err) {
+		// 		console.warn('[vuex.user] LoginByEmail', err);
+		// 	}
+		// },
+
+		Login: async ({ commit, dispatch, getters }, payload) => {
+			console.log('vuex user.js payload', payload);
 			try {
-				const response = await loginByEmail(payload.email.trim(), payload.password);
-				console.log('[vuex.user] LoginByEmail', payload, response);
-				await commit('SET_TOKEN', response.user.token);
-				await commit('SET_USER_INFO', response.user);
-				await dispatch('permission/GenerateRoutes', response.user);
+				const response = await login({
+					userNameOrEmailAddress: payload.username.trim(),
+					password: payload.password,
+					rememberClient: true
+				});
+
+				console.log('[vuex.user] Login api payload / response', payload, response);
+				setToken(response.data.result.accessToken);
+				await commit('SET_TOKEN', response.data.result.accessToken);
+				await dispatch('GetUserInfo', response.data.result.userId);
+				await dispatch('permission/GenerateRoutes', getters.roles);
 			} catch (err) {
-				console.warn('[vuex.user] LoginByEmail', err);
+				console.warn('[vuex.user] Login', err);
 			}
 		},
 
-		GetUserInfo: async ({ commit, state }) => {
-			console.log('[vuex.user] GetUserInfo');
+		GetUserInfo: async ({ commit }, payload) => {
+			// console.log('vuex user.js GetUserInfo payload', payload);
 			try {
-				const response = await getUserInfo(state.token);
-
-				// Since mockjs does not support custom status codes, it can only be hacked like this
-				if (!response) {
-					throw new Error('Verification failed, please login again.');
-				}
-
-				// Verify returned roles are a non-null array
-				if (response.user.roles && response.user.roles.length === 0) {
-					throw new Error('getInfo: roles must be a non-null array!');
-				}
-
-				commit('SET_USER_INFO', response.user);
+				const response = await getUser(payload);
+				await commit('SET_USER_INFO', response.data.result);
+				// console.log('vuex user.js GetUserInfo response', response);
 			} catch (err) {
-				console.warn('[vuex.user] GetUserInfo', err);
+				console.warn('vuex user.js GetUserInfo error', err);
 			}
 		},
+
+		// GetUserInfo: async ({ commit, state }) => {
+		// 	console.log('[vuex.user] GetUserInfo');
+		// 	try {
+		// 		const response = await getUserInfo(state.token);
+
+		// 		// Since mockjs does not support custom status codes, it can only be hacked like this
+		// 		if (!response) {
+		// 			throw new Error('Verification failed, please login again.');
+		// 		}
+
+		// 		// Verify returned roles are a non-null array
+		// 		if (response.user.roles && response.user.roles.length === 0) {
+		// 			throw new Error('getInfo: roles must be a non-null array!');
+		// 		}
+
+		// 		commit('SET_USER_INFO', response.user);
+		// 	} catch (err) {
+		// 		console.warn('[vuex.user] GetUserInfo', err);
+		// 	}
+		// },
 
 		LogOut: async ({ commit }) => {
 			try {
 				console.log('[vuex.user] LogOut');
 				await commit('SET_USER_INFO', { logout: true });
+				removeToken();
 			} catch (err) {
 				console.warn('[vuex.user] LogOut', err);
 			}

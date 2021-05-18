@@ -10,7 +10,7 @@
 						</div>
 						<v-form>
 							<v-text-field
-								v-model="model.email"
+								v-model="model.username"
 								append-icon="mdi-account"
 								name="email"
 								:label="$t('login.email')"
@@ -78,24 +78,25 @@ export default {
 	data: () => ({
 		loading: false,
 		model: {
+			username: 'admin',
 			email: '',
-			password: ''
+			password: '123qwe'
 		}
 	}),
 	methods: {
 		async login() {
-			await this.$store.dispatch('LoginByEmail', {
-				email: this.model.email,
+			await this.$store.dispatch('Login', {
+				username: this.model.username,
 				password: this.model.password
 			});
 			await this.$router.push(this.$route.query.redirect || '/');
 		},
 		setUserToLogin(id) {
 			if (id) {
-				this.model.email = userAdmin.email;
+				this.model.username = userAdmin.email;
 				this.model.password = userAdmin.password;
 			} else {
-				this.model.email = userEditor.email;
+				this.model.username = userEditor.email;
 				this.model.password = userEditor.password;
 			}
 		}
