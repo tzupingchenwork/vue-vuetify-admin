@@ -60,23 +60,23 @@ export const constantRoutes = [
 			}
 		]
 	},
-	{
-		path: '/',
-		component: Layout,
-		children: [
-			{
-				path: '/documentation',
-				component: () => import('@/views/components/Documentation'),
-				name: 'Documentation',
-				meta: {
-					title: 'route.documentation',
-					icon: 'mdi-text-subject',
-					noCache: true,
-					affix: true
-				}
-			}
-		]
-	},
+	// {
+	// 	path: '/',
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: '/documentation',
+	// 			component: () => import('@/views/components/Documentation'),
+	// 			name: 'Documentation',
+	// 			meta: {
+	// 				title: 'route.documentation',
+	// 				icon: 'mdi-text-subject',
+	// 				noCache: true,
+	// 				affix: true
+	// 			}
+	// 		}
+	// 	]
+	// },
 	// {
 	// 	path: '/',
 	// 	component: Layout,

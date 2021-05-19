@@ -28,7 +28,7 @@ const permissionRouter = {
 			path: 'visitor',
 			component: () => import('@/views/components/Permission/Visitor.vue'),
 			name: 'PermissionVisitor',
-			meta: { title: 'route.permission.visitor', roles: ['VISITOR'], noCache: true }
+			meta: { title: 'route.permission.visitor', noCache: true }
 		}
 	]
 };

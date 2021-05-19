@@ -1,5 +1,5 @@
 <template>
-	<v-app-bar app :dense="toolbarDense">
+	<v-app-bar app elevation="2" :dense="toolbarDense">
 		<v-app-bar-nav-icon @click.stop="toggleNavbar">
 			<v-icon>{{ toggleNavbarIcon }}</v-icon>
 		</v-app-bar-nav-icon>

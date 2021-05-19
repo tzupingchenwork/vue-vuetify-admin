@@ -1,6 +1,6 @@
 // import { loginByEmail, getUserInfo } from '@/api/login';
-import { login, getUser } from '@/api/user';
-import { setToken, removeToken, getToken } from '@/utils/auth';
+import { login, getUser, AbpUserConfiguration } from '@/api/user';
+import { setToken, removeToken, getToken, setCurrentUserId, removeCurrentUserId } from '@/utils/auth';
 import { resetRouter } from '@/router';
 
 const user = {
@@ -8,7 +8,8 @@ const user = {
 		token: getToken(),
 		roles: [],
 		user: '',
-		name: ''
+		name: '',
+		permission: []
 		// avatar: '',
 		// status: '',
 		// code: '',
@@ -92,10 +93,13 @@ const user = {
 					rememberClient: true
 				});
 
-				console.log('[vuex.user] Login api payload / response', payload, response);
-				setToken(response.data.result.accessToken);
+				// console.log('[vuex.user] Login api payload / response', payload, response);
+				// Store token in localstorage
+				await setToken(response.data.result.accessToken);
+				await setCurrentUserId(response.data.result.userId);
 				await commit('SET_TOKEN', response.data.result.accessToken);
 				await dispatch('GetUserInfo', response.data.result.userId);
+				await dispatch('GetUserPermission');
 				await dispatch('permission/GenerateRoutes', getters.roles);
 			} catch (err) {
 				console.warn('[vuex.user] Login', err);
@@ -110,6 +114,15 @@ const user = {
 				// console.log('vuex user.js GetUserInfo response', response);
 			} catch (err) {
 				console.warn('vuex user.js GetUserInfo error', err);
+			}
+		},
+
+		GetUserPermission: async ({ commit, getters }) => {
+			try {
+				const response = await AbpUserConfiguration(getters.token);
+				console.log('vuex user.js GetUserPermission response > grantedPermissions', response.data.result.auth.grantedPermissions);
+			} catch (err) {
+				console.error('vuex user.js GetUserPermission error', err);
 			}
 		},
 
@@ -139,6 +152,7 @@ const user = {
 				console.log('[vuex.user] LogOut');
 				await commit('SET_USER_INFO', { logout: true });
 				removeToken();
+				removeCurrentUserId();
 				resetRouter();
 			} catch (err) {
 				console.warn('[vuex.user] LogOut', err);
